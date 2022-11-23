@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+
+  <!-- page:null,
+    html:"",
+    class:"",
+    ariaDisabled:"false", -->
+
+  <div class="container mt-5" id="app">
+    <div class="row">
+      <div class="d-flex justify-content-start" id="pagination">
+        <ul class="pagination pagination-sm">      
+            <li v-for="li in pageNumbers" @click.prevent="page=li.page"  :class="li.class" :aria-disabled="li.ariaDisabled" v-html="li.html"></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <ul>
+        <li v-for="product in products"> {{ product.id }} - {{ product.name }} </li>
+      </ul>
+    </div>
+  </div>
+
+
+
+  <script>
+    const log = console.log
+
+    // 30 row
+    var DATA = [{
+        id: 1,
+        name: 'Mamun1'
+      },
+      {
+        id: 2,
+        name: 'Mamun2'
+      },
+      {
+        id: 3,
+        name: 'Mamun3'
+      },
+      {
+        id: 4,
+        name: 'Mamun4'
+      },
+      {
+        id: 5,
+        name: 'Mamun5'
+      },
+      {
+        id: 6,
+        name: 'Mamun6'
+      },
+      {
+        id: 7,
+        name: 'Mamun7'
+      },
+      {
+        id: 8,
+        name: 'Mamun8'
+      },
+      {
+        id: 9,
+        name: 'Mamun9'
+      },
+      {
+        id: 10,
+        name: 'Mamun10'
+      },
+      {
+        id: 11,
+        name: 'Mamun11'
+      },
+      {
+        id: 12,
+        name: 'Mamun12'
+      },
+      {
+        id: 13,
+        name: 'Mamun13'
+      },
+      {
+        id: 14,
+        name: 'Mamun14'
+      },
+      {
+        id: 15,
+        name: 'Mamun15'
+      },
+      {
+        id: 16,
+        name: 'Mamun16'
+      },
+      {
+        id: 17,
+        name: 'Mamun17'
+      },
+      {
+        id: 18,
+        name: 'Mamun18'
+      },
+      {
+        id: 19,
+        name: 'Mamun19'
+      },
+      {
+        id: 20,
+        name: 'Mamun20'
+      },
+      {
+        id: 21,
+        name: 'Mamun21'
+      },
+      {
+        id: 22,
+        name: 'Mamun22'
+      },
+      {
+        id: 23,
+        name: 'Mamun23'
+      },
+      {
+        id: 24,
+        name: 'Mamun24'
+      },
+      {
+        id: 25,
+        name: 'Mamun25'
+      },
+      {
+        id: 26,
+        name: 'Mamun26'
+      },
+      {
+        id: 27,
+        name: 'Mamun27'
+      },
+      {
+        id: 28,
+        name: 'Mamun28'
+      },
+      {
+        id: 29,
+        name: 'Mamun29'
+      },
+      {
+        id: 30,
+        name: 'Mamun30'
+      },
+      {
+        id: 31,
+        name: 'Mamun31'
+      },
+      {
+        id: 32,
+        name: 'Mamun32'
+      },
+      {
+        id: 33,
+        name: 'Mamun33'
+      },
+      {
+        id: 34,
+        name: 'Mamun34'
+      },
+      {
+        id: 35,
+        name: 'Mamun35'
+      },
+      {
+        id: 36,
+        name: 'Mamun36'
+      },
+      {
+        id: 37,
+        name: 'Mamun37'
+      },
+      {
+        id: 38,
+        name: 'Mamun38'
+      },
+      {
+        id: 39,
+        name: 'Mamun39'
+      },
+      {
+        id: 40,
+        name: 'Mamun40'
+      },
+      {
+        id: 41,
+        name: 'Mamun41'
+      },
+      {
+        id: 42,
+        name: 'Mamun42'
+      },
+      {
+        id: 43,
+        name: 'Mamun43'
+      },
+      {
+        id: 44,
+        name: 'Mamun44'
+      },
+      {
+        id: 45,
+        name: 'Mamun45'
+      },
+      {
+        id: 46,
+        name: 'Mamun46'
+      },
+      {
+        id: 47,
+        name: 'Mamun47'
+      },
+      {
+        id: 49,
+        name: 'Mamun49'
+      },
+      {
+        id: 50,
+        name: 'Mamun50'
+      },
+      {
+        id: 51,
+        name: 'Mamun51'
+      },
+      {
+        id: 52,
+        name: 'Mamun52'
+      },
+      {
+        id: 53,
+        name: 'Mamun53'
+      },
+      {
+        id: 54,
+        name: 'Mamun54'
+      },
+      {
+        id: 55,
+        name: 'Mamun55'
+      },
+      {
+        id: 56,
+        name: 'Mamun56'
+      },
+      {
+        id: 57,
+        name: 'Mamun57'
+      },
+      {
+        id: 58,
+        name: 'Mamun58'
+      },
+      {
+        id: 59,
+        name: 'Mamun59'
+      },
+      {
+        id: 60,
+        name: 'Mamun60'
+      },
+      {
+        id: 61,
+        name: 'Mamun61'
+      },
+      {
+        id: 62,
+        name: 'Mamun62'
+      },
+      {
+        id: 63,
+        name: 'Mamun63'
+      },
+      {
+        id: 64,
+        name: 'Mamun64'
+      },
+      {
+        id: 65,
+        name: 'Mamun65'
+      },
+      {
+        id: 66,
+        name: 'Mamun66'
+      },
+      {
+        id: 67,
+        name: 'Mamun67'
+      },
+      {
+        id: 68,
+        name: 'Mamun68'
+      },
+      {
+        id: 69,
+        name: 'Mamun69'
+      },
+      {
+        id: 70,
+        name: 'Mamun70'
+      },
+      {
+        id: 71,
+        name: 'Mamun71'
+      },
+      {
+        id: 72,
+        name: 'Mamun72'
+      },
+      {
+        id: 73,
+        name: 'Mamun73'
+      },
+      {
+        id: 74,
+        name: 'Mamun74'
+      },
+      {
+        id: 75,
+        name: 'Mamun75'
+      },
+      {
+        id: 76,
+        name: 'Mamun76'
+      },
+      {
+        id: 77,
+        name: 'Mamun77'
+      },
+      {
+        id: 78,
+        name: 'Mamun78'
+      },
+      {
+        id: 79,
+        name: 'Mamun79'
+      },
+      {
+        id: 80,
+        name: 'Mamun80'
+      },
+      {
+        id: 81,
+        name: 'Mamun81'
+      },
+      {
+        id: 82,
+        name: 'Mamun82'
+      },
+      {
+        id: 83,
+        name: 'Mamun83'
+      },
+      {
+        id: 84,
+        name: 'Mamun84'
+      },
+      {
+        id: 85,
+        name: 'Mamun85'
+      },
+      {
+        id: 86,
+        name: 'Mamun86'
+      },
+      {
+        id: 87,
+        name: 'Mamun87'
+      },
+      {
+        id: 88,
+        name: 'Mamun88'
+      },
+      {
+        id: 89,
+        name: 'Mamun89'
+      },
+      {
+        id: 90,
+        name: 'Mamun90'
+      },
+      {
+        id: 91,
+        name: 'Mamun91'
+      },
+      {
+        id: 92,
+        name: 'Mamun92'
+      },
+      {
+        id: 93,
+        name: 'Mamun93'
+      },
+      {
+        id: 94,
+        name: 'Mamun94'
+      },
+      {
+        id: 95,
+        name: 'Mamun95'
+      },
+      {
+        id: 96,
+        name: 'Mamun96'
+      },
+      {
+        id: 97,
+        name: 'Mamun97'
+      },
+      {
+        id: 98,
+        name: 'Mamun98'
+      },
+      {
+        id: 99,
+        name: 'Mamun99'
+      },
+      {
+        id: 100,
+        name: 'Mamun100'
+      },
+    ]
+
+    class PaginateClass {
+      constructor(data/**Array/Number*/, page=1, options = {}) {
+        this.initial_data = (typeof data == 'object') ? data : [...Array(data).keys()]
+        this.rows = this.initial_data.length
+
+        this.props = this.patchEntity({
+          perpage: 5,
+          showMaxpageNumbers: 5,
+          tail: 1,
+          tailMark:'...',
+
+          queryVar: 'page',
+          startWith: '<ul class="pagination">',
+          active_class: 'active',
+          li_class: 'page-item',
+          a_class: 'page-link',
+          prev_text: 'Previous',
+          next_text: 'Next',
+          endWith: '<ul">',
+          selector: '#pagination',
+
+          firstPage_text:null,
+          lastPage_text:null,
+
+        }, options)
+
+        this.log = console.log
+
+        this.page = page >= 1 ? page : 1
+        this.perpage = this.props.perpage
+        this.showMax = this.props.showMaxpageNumbers >= 2 ? this.props.showMaxpageNumbers : 2
+
+        this.pages = 0
+        this.allPageNumbers = []
+        this.pageNumbers = []
+        this.newLinks = []
+        this.setPages()
+        this.setData()
+        this.setpageNumbers()
+      }
+
+      patchEntity(defaultsObject = {}, newObject = {}) {
+        for (const [key, value] of Object.entries(defaultsObject)) {
+          if (newObject.hasOwnProperty(key)) {
+            defaultsObject[key] = newObject[key];
+          }
+        }
+        return defaultsObject
+      }
+
+      setPages() {
+        if (this.rows) {
+          this.pages = Math.ceil(this.rows / this.perpage)
+        }
+      }
+
+      setData() {
+        let start = (this.perpage * (this.page - 1))
+        let limit = start + this.perpage
+        this.data = this.initial_data.slice(start, limit)
+      }
+
+      setpageNumbers() {
+        if (this.pages) {
+          let links = [...Array(this.pages ? this.pages + 1 : 0).keys()]
+          links.shift()
+          let getSlot = (i) => links.slice((i - 1) * this.showMax, i * this.showMax)
+
+          for (let i = 1; i <= Math.ceil(links.length / this.showMax); i++) {
+            let index = i
+            let indexPrev = i - 1
+            let indexNext = i + 1
+
+            let slotPrev = getSlot(indexPrev)
+            let slot = getSlot(index)
+            let slotNext = getSlot(indexNext)
+
+            
+            if(slot.some((val)=>val==this.page)) {
+              let newLinks = slot
+              let lt,rt
+              if(this.tail > 0){
+                lt = slotPrev.slice(-this.props.tail)
+                rt = slotNext.slice(0, this.props.tail)
+              }else{
+                lt = slotPrev.slice(-1)
+                rt = slotNext.slice(0, 1)
+              }
+                newLinks = lt.length ? this.props.tail ? [...lt, '-', ...newLinks] : [...lt, ...newLinks] : newLinks
+                newLinks = rt.length ? this.props.tail ? [...newLinks, '-', ...rt] : [...newLinks, ...rt, ] : newLinks
+
+              this.allPageNumbers = links
+              this.newLinks = newLinks
+            }
+          }
+        }
+
+        // Pagination UI
+        if (this.newLinks.length) {
+          this.firstPage = this.allPageNumbers[0]
+          this.lastPage = this.allPageNumbers.slice(-1)
+
+          // With HTML
+          let pageNumbers=[]
+          this.newLinks.forEach((pageNumber, i) => {
+            if (i == 0) {
+              if(this.props.firstPage_text){
+                pageNumbers.push(this.get_li(pageNumber, 'firstPage'))
+              }
+              pageNumbers.push(this.get_li(pageNumber, 'previous'))
+              pageNumbers.push(this.get_li(pageNumber))
+            } else if (i == this.newLinks.length-1) {
+              pageNumbers.push(this.get_li(pageNumber))
+              pageNumbers.push(this.get_li(pageNumber, 'next'))
+              if(this.props.firstPage_text){
+                pageNumbers.push(this.get_li(pageNumber, 'lastPage'))
+              }
+            } else if(pageNumber=='-'){
+              pageNumbers.push(this.get_li(pageNumber, 'separator'))
+            }else {
+              pageNumbers.push(this.get_li(pageNumber))
+            }
+          });
+          this.pageNumbers = pageNumbers
+        }
+
+
+      }
+
+      get_li(pageNumber, pageType = '' /**previous/next*/ ) {
+   
+        let curpage = this.page
+        let isActivePage = (curpage == pageNumber)
+        let queryVar = '?'+this.props.queryVar + '='
+        let HTML
+        let Response = {
+          page:null,
+          html:"",
+          class:"",
+          ariaDisabled:"false",
+        }
+        if(pageType=='previous'){
+          HTML = `<a class="${this.props.a_class}" href="`+ (Number(curpage)>1 ? queryVar+(curpage-1) : '#') +`" 
+                    `+ (curpage==1? ` aria-disabled="true"` : '') +` >${this.props.prev_text}</a>`
+          Response.page = (Number(curpage)>1 ? (curpage-1) : 1)
+          Response.html = HTML
+          Response.class = `${this.props.li_class}` + (Number(curpage)==1 ? ' disabled' : '')
+          Response.ariaDisabled = (Number(curpage)==1 ? 'true' : 'false')
+
+        }else if(pageType=='next'){
+          HTML = `<a class="${this.props.a_class}" href="`+ ((Number(curpage) < this.lastPage) ? queryVar+(Number(curpage)+1) : '#') +`"
+                    `+ (curpage==this.lastPage? ` aria-disabled="true"` : '') +` >${this.props.next_text}</a>`
+          Response.page = (Number(curpage) < this.lastPage) ? (Number(curpage)+1) : pageNumber
+          Response.html = HTML
+          Response.class = `${this.props.li_class}` + (Number(curpage)==this.lastPage ? ' disabled' : '')
+          Response.ariaDisabled = (Number(curpage)==1 ? 'true' : 'false')
+
+        }
+        else if(pageType=='separator'){
+          HTML = `<a class="${this.props.a_class}">${this.props.tailMark}</a>`
+          Response.page = '#'
+          Response.html = HTML
+          Response.class = `${this.props.li_class} separator`
+          Response.ariaDisabled = 'false'
+
+        }
+        else if(pageType=='firstPage'){
+          HTML = `<a class="${this.props.a_class}">${this.props.firstPage_text}</a>`
+          Response.page = 1
+          Response.html = HTML
+          Response.class = `${this.props.li_class}` + (pageNumber==1? ' disabled' : '') 
+          Response.ariaDisabled = 'true'
+
+        }
+        else if(pageType=='lastPage'){
+          HTML = `<a class="${this.props.a_class}">${this.props.lastPage_text}</a>`
+          Response.page = this.lastPage
+          Response.html = HTML
+          Response.class = `${this.props.li_class}` + (pageNumber==this.lastPage? ' disabled' : '') 
+          Response.ariaDisabled = 'true'
+
+        }
+        else{
+          HTML = `<a class="${this.props.a_class}" href="`+ queryVar + pageNumber + `">${pageNumber}</a>`
+          Response.page = pageNumber
+          Response.html = HTML
+          Response.class = `${this.props.li_class}` + (Number(curpage)==pageNumber? ' active' : '') 
+          Response.ariaDisabled = 'false'
+        }        
+        return Response
+      }
+
+    }
+
+    // let P = new PaginateClass(DATA, {perpage: 10,tail:1,tailMark:'...', showMaxpageNumbers:2})
+    
+
+
+    
+    new Vue({
+      el:"#app",
+      data:{
+        data: DATA,
+        pageNumbers:[],
+        page:1,
+      },
+      computed:{
+        products(){
+          let Pagination =  new PaginateClass(this.data, this.page, {perpage: 10,tail:1,tailMark:'...', showMaxpageNumbers:5,
+          firstPage_text:'First Page', lastPage_text:'Last Page'
+        }) 
+          this.pageNumbers = Pagination.pageNumbers
+          return Pagination.data
+        }
+      },
+      created() {
+        // log(this.data)
+      },
+    })
+  </script>
+</body>
+
+</html>

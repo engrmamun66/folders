@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</head>
+
+<body>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="d-flex justify-content-center" id="pagination"></div>
+    </div>
+    <div class="row">
+
+    </div>
+  </div>
+
+
+
+  <script>
+    const log = console.log
+
+    // 30 row
+    const data = [{
+        id: 1,
+        name: 'Mamun1'
+      },
+      {
+        id: 2,
+        name: 'Mamun2'
+      },
+      {
+        id: 3,
+        name: 'Mamun3'
+      },
+      {
+        id: 4,
+        name: 'Mamun4'
+      },
+      {
+        id: 5,
+        name: 'Mamun5'
+      },
+      {
+        id: 6,
+        name: 'Mamun6'
+      },
+      {
+        id: 7,
+        name: 'Mamun7'
+      },
+      {
+        id: 8,
+        name: 'Mamun8'
+      },
+      {
+        id: 9,
+        name: 'Mamun9'
+      },
+      {
+        id: 10,
+        name: 'Mamun10'
+      },
+      {
+        id: 11,
+        name: 'Mamun11'
+      },
+      {
+        id: 12,
+        name: 'Mamun12'
+      },
+      {
+        id: 13,
+        name: 'Mamun13'
+      },
+      {
+        id: 14,
+        name: 'Mamun14'
+      },
+      {
+        id: 15,
+        name: 'Mamun15'
+      },
+      {
+        id: 16,
+        name: 'Mamun16'
+      },
+      {
+        id: 17,
+        name: 'Mamun17'
+      },
+      {
+        id: 18,
+        name: 'Mamun18'
+      },
+      {
+        id: 19,
+        name: 'Mamun19'
+      },
+      {
+        id: 20,
+        name: 'Mamun20'
+      },
+      {
+        id: 21,
+        name: 'Mamun21'
+      },
+      {
+        id: 22,
+        name: 'Mamun22'
+      },
+      {
+        id: 23,
+        name: 'Mamun23'
+      },
+      {
+        id: 24,
+        name: 'Mamun24'
+      },
+      {
+        id: 25,
+        name: 'Mamun25'
+      },
+      {
+        id: 26,
+        name: 'Mamun26'
+      },
+      {
+        id: 27,
+        name: 'Mamun27'
+      },
+      {
+        id: 28,
+        name: 'Mamun28'
+      },
+      {
+        id: 29,
+        name: 'Mamun29'
+      },
+      {
+        id: 30,
+        name: 'Mamun30'
+      },
+      {
+        id: 31,
+        name: 'Mamun31'
+      },
+      {
+        id: 32,
+        name: 'Mamun32'
+      },
+      {
+        id: 33,
+        name: 'Mamun33'
+      },
+      {
+        id: 34,
+        name: 'Mamun34'
+      },
+      {
+        id: 35,
+        name: 'Mamun35'
+      },
+      {
+        id: 36,
+        name: 'Mamun36'
+      },
+      {
+        id: 37,
+        name: 'Mamun37'
+      },
+      {
+        id: 38,
+        name: 'Mamun38'
+      },
+      {
+        id: 39,
+        name: 'Mamun39'
+      },
+      {
+        id: 40,
+        name: 'Mamun40'
+      },
+      {
+        id: 41,
+        name: 'Mamun41'
+      },
+      {
+        id: 42,
+        name: 'Mamun42'
+      },
+      {
+        id: 43,
+        name: 'Mamun43'
+      },
+      {
+        id: 44,
+        name: 'Mamun44'
+      },
+      {
+        id: 45,
+        name: 'Mamun45'
+      },
+      {
+        id: 46,
+        name: 'Mamun46'
+      },
+      {
+        id: 47,
+        name: 'Mamun47'
+      },
+      {
+        id: 49,
+        name: 'Mamun49'
+      },
+      {
+        id: 50,
+        name: 'Mamun50'
+      },
+      {
+        id: 51,
+        name: 'Mamun51'
+      },
+      {
+        id: 52,
+        name: 'Mamun52'
+      },
+      {
+        id: 53,
+        name: 'Mamun53'
+      },
+      {
+        id: 54,
+        name: 'Mamun54'
+      },
+      {
+        id: 55,
+        name: 'Mamun55'
+      },
+      {
+        id: 56,
+        name: 'Mamun56'
+      },
+      {
+        id: 57,
+        name: 'Mamun57'
+      },
+      {
+        id: 58,
+        name: 'Mamun58'
+      },
+      {
+        id: 59,
+        name: 'Mamun59'
+      },
+      {
+        id: 60,
+        name: 'Mamun60'
+      },
+      {
+        id: 61,
+        name: 'Mamun61'
+      },
+      {
+        id: 62,
+        name: 'Mamun62'
+      },
+      {
+        id: 63,
+        name: 'Mamun63'
+      },
+      {
+        id: 64,
+        name: 'Mamun64'
+      },
+      {
+        id: 65,
+        name: 'Mamun65'
+      },
+      {
+        id: 66,
+        name: 'Mamun66'
+      },
+      {
+        id: 67,
+        name: 'Mamun67'
+      },
+      {
+        id: 68,
+        name: 'Mamun68'
+      },
+      {
+        id: 69,
+        name: 'Mamun69'
+      },
+      {
+        id: 70,
+        name: 'Mamun70'
+      },
+      {
+        id: 71,
+        name: 'Mamun71'
+      },
+      {
+        id: 72,
+        name: 'Mamun72'
+      },
+      {
+        id: 73,
+        name: 'Mamun73'
+      },
+      {
+        id: 74,
+        name: 'Mamun74'
+      },
+      {
+        id: 75,
+        name: 'Mamun75'
+      },
+      {
+        id: 76,
+        name: 'Mamun76'
+      },
+      {
+        id: 77,
+        name: 'Mamun77'
+      },
+      {
+        id: 78,
+        name: 'Mamun78'
+      },
+      {
+        id: 79,
+        name: 'Mamun79'
+      },
+      {
+        id: 80,
+        name: 'Mamun80'
+      },
+      {
+        id: 81,
+        name: 'Mamun81'
+      },
+      {
+        id: 82,
+        name: 'Mamun82'
+      },
+      {
+        id: 83,
+        name: 'Mamun83'
+      },
+      {
+        id: 84,
+        name: 'Mamun84'
+      },
+      {
+        id: 85,
+        name: 'Mamun85'
+      },
+      {
+        id: 86,
+        name: 'Mamun86'
+      },
+      {
+        id: 87,
+        name: 'Mamun87'
+      },
+      {
+        id: 88,
+        name: 'Mamun88'
+      },
+      {
+        id: 89,
+        name: 'Mamun89'
+      },
+      {
+        id: 90,
+        name: 'Mamun90'
+      },
+      {
+        id: 91,
+        name: 'Mamun91'
+      },
+      {
+        id: 92,
+        name: 'Mamun92'
+      },
+      {
+        id: 93,
+        name: 'Mamun93'
+      },
+      {
+        id: 94,
+        name: 'Mamun94'
+      },
+      {
+        id: 95,
+        name: 'Mamun95'
+      },
+      {
+        id: 96,
+        name: 'Mamun96'
+      },
+      {
+        id: 97,
+        name: 'Mamun97'
+      },
+      {
+        id: 98,
+        name: 'Mamun98'
+      },
+      {
+        id: 99,
+        name: 'Mamun99'
+      },
+      {
+        id: 100,
+        name: 'Mamun100'
+      },
+    ]
+
+    class Paginate {
+      constructor(data/**Array/Number*/, options = {}) {
+        this.initial_data = (typeof data == 'object') ? data : [...Array(data).keys()]
+        this.rows = this.initial_data.length
+
+        this.props = this.patchEntity({
+          perpage: 5,
+          showMaxpageNumbers: 5,
+          tail: 1,
+          tailMark:'...',
+
+          queryVar: 'page',
+          startWith: '<ul class="pagination">',
+          active_class: 'active',
+          li_class: 'page-item',
+          a_class: 'page-link',
+          prev_text: 'Previous',
+          next_text: 'Next',
+          endWith: '<ul">',
+          selector: '#pagination'
+
+        }, options)
+
+        this.log = console.log
+
+        this.page = this.getPage()
+        this.perpage = this.props.perpage
+        this.showMax = this.props.showMaxpageNumbers >= 2 ? this.props.showMaxpageNumbers : 2
+
+        this.pages = 0
+        this.allPageNumbers = []
+        this.pageNumbers = []
+        this.newLinks = []
+        this.setPages()
+        this.setData()
+        this.setpageNumbers()
+
+
+      }
+
+      getQuery(key = '') {
+        let params = new URLSearchParams(window.location.search)
+        if (key) return params.get(key)
+        return params
+      }
+
+      getPage() {
+        let page = this.getQuery(this.props.queryVar)
+        return (page != null || page != undefined) ? page : 1
+      }
+
+      patchEntity(defaultsObject = {}, newObject = {}) {
+        for (const [key, value] of Object.entries(defaultsObject)) {
+          if (newObject.hasOwnProperty(key)) {
+            defaultsObject[key] = newObject[key];
+          }
+        }
+        return defaultsObject
+      }
+
+      setPages() {
+        if (this.rows) {
+          this.pages = Math.ceil(this.rows / this.perpage)
+        }
+      }
+
+      setData() {
+        let start = (this.perpage * (this.page - 1))
+        let limit = start + this.perpage
+        this.data = this.initial_data.slice(start, limit)
+      }
+
+      setpageNumbers() {
+        if (this.pages) {
+          let links = [...Array(this.pages ? this.pages + 1 : 0).keys()]
+          links.shift()
+          let getSlot = (i) => links.slice((i - 1) * this.showMax, i * this.showMax)
+
+          for (let i = 1; i <= Math.ceil(links.length / this.showMax); i++) {
+            let index = i
+            let indexPrev = i - 1
+            let indexNext = i + 1
+
+            let slotPrev = getSlot(indexPrev)
+            let slot = getSlot(index)
+            let slotNext = getSlot(indexNext)
+
+            
+            if(slot.some((val)=>val==this.page)) {
+              let newLinks = slot
+              let lt,rt
+              if(this.tail > 0){
+                lt = slotPrev.slice(-this.props.tail)
+                rt = slotNext.slice(0, this.props.tail)
+              }else{
+                lt = slotPrev.slice(-1)
+                rt = slotNext.slice(0, 1)
+              }
+                newLinks = lt.length ? this.props.tail ? [...lt, '-', ...newLinks] : [...lt, ...newLinks] : newLinks
+                newLinks = rt.length ? this.props.tail ? [...newLinks, '-', ...rt] : [...newLinks, ...rt, ] : newLinks
+
+              this.allPageNumbers = links
+              this.newLinks = newLinks
+            }
+          }
+        }
+
+        // Pagination UI
+        if (this.newLinks.length) {
+          console.log(this.allPageNumbers);
+          console.log(this.newLinks);
+          this.firstPage = this.allPageNumbers[0]
+          this.lastPage = this.allPageNumbers.slice(-1)
+
+          // With HTML
+          let HTML = this.props.startWith
+          this.newLinks.forEach((pageNumber, i) => {
+            if (i == 0) {
+              HTML += this.get_li(pageNumber, 'previous')
+              HTML += this.get_li(pageNumber)
+            } else if (i == this.newLinks.length-1) {
+              HTML += this.get_li(pageNumber)
+              HTML += this.get_li(pageNumber, 'next')
+            } else if(pageNumber=='-'){
+              HTML += this.get_li('-', 'separator')
+            }else {
+              HTML += this.get_li(pageNumber)
+              
+            }
+          });
+          HTML += HTML = this.props.endWith
+          document.querySelector(this.props.selector).innerHTML = HTML
+          
+        }
+
+
+      }
+
+      get_li(pageNumber, pageType = '' /**previous/next*/ ) {
+   
+        let curpage = this.getPage(this.props.queryVar)
+        let isActivePage = (curpage == pageNumber)
+        let queryVar = '?'+this.props.queryVar + '='
+        let HTML
+        if(pageType=='previous'){
+          log(queryVar)
+          HTML = `<li class="page-item `+ (curpage==1? `disabled` : '') +` ">
+                  <a class="page-link" href="`+ (Number(curpage)>1 ? queryVar+(curpage-1) : '#') +`" 
+                    `+ (curpage==1? `tabindex="-1" aria-disabled="true"` : '') +` >${this.props.prev_text}</a>
+                </li>`
+        }else if(pageType=='next'){
+          HTML = `<li class="page-item `+ (curpage==this.lastPage? `disabled` : '') +` >">
+                  <a class="page-link" href="`+ ((Number(curpage) < this.lastPage) ? queryVar+(Number(curpage)+1) : '#') +`"
+                    `+ (curpage==this.lastPage? `tabindex="-1" aria-disabled="true"` : '') +` >${this.props.next_text}</a>
+                </li>`   
+        }else if(pageType=='separator'){
+          HTML = `<li class="page-item separator">
+                  <a class="page-link">${this.props.tailMark}</a>
+                </li>`
+        }else{
+          HTML = `<li class="page-item `+ (curpage==pageNumber? 'active' : '') + `" `+ (curpage==pageNumber? 'disabled' : '') + `>
+                  <a class="page-link" href="`+ queryVar + pageNumber + `">${pageNumber}</a>
+                </li>`
+
+        }
+        
+        return HTML
+      }
+
+      get(key = '') {
+        let Data = {
+          page: this.page,
+          data: this.data,
+          total: this.data.length,
+          total: this.data.length,
+          pages: this.allPageNumbers.length,
+          pageNumbers: this.pageNumbers,
+          props: this.props,
+        }
+        if (!key) return Data
+        else return Data[key];
+      }
+
+
+    }
+
+    let P = new Paginate(data, {perpage: 10,tail:1,tailMark:'...', showMaxpageNumbers:2})
+    
+
+  </script>
+</body>
+
+</html>
