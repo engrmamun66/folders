@@ -11,6 +11,14 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <style>
+    ul.pagination li a{
+      color: rgb(52, 52, 52);
+    }
+    ul.pagination li a:hover{
+      color: rgb(0, 0, 0);
+    }
+  </style>
 </head>
 
 <body>
@@ -647,7 +655,7 @@
       },
       computed:{
         products(){
-          let Pagination =  new PaginateClass(this.data, this.page, {perpage: 10,tail:1,tailMark:'...', showMaxpageNumbers:5,
+          let Pagination =  new PaginateClass(this.data, this.page, {perpage: 5,tail:1,tailMark:'...', showMaxpageNumbers:5,
           firstPage_text:'First Page', lastPage_text:'Last Page'
         }) 
           this.pageNumbers = Pagination.pageNumbers
