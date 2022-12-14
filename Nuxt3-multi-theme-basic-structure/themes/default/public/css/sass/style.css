@@ -1,0 +1,99 @@
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before,
+.signin-signup-box-inner,
+.sv-admin-main-wrapper .table tr td.table-action a:hover {
+  background-color: #00A1B0;
+}
+
+.moremenu-shorttitle,
+.sv-admin-main-wrapper .sv-admin-title-rightcontent-side ul li ul.short-dropdown-menu li a:hover,
+.sv-admin-main-wrapper .table tr td.table-action a,
+.sv-admin-main-wrapper .sv-admin-title-rightcontent-side ul li a.more-btn-text,
+.sv-admin-main-wrapper .sv-admin-collapes-area:hover .sidebar-leftmenu-icon .lni:first-child,
+.sv-admin-main-wrapper .sidebar-rightmenu-icon .lni:last-child,
+.sv-admin-main-wrapper .sv-admin-sidebar.active .sv-admin-accordion li a:hover .menu-text,
+.sv-admin-main-wrapper .leftside-top-nav .leftside-navmenu li a:hover,
+.sv-admin-main-wrapper .leftside-top-nav .leftside-navmenu li a:hover span,
+.sv-admin-main-wrapper .leftside-top-nav .leftside-navmenu li a.selected,
+.sv-admin-main-wrapper .leftside-top-nav .leftside-navmenu li a.selected span,
+.sv-admin-main-wrapper .rightside-top-nav .rightside-navmenu li.sv-admin-right-dropdown a.sv-admin-dropdown-link,
+a {
+  color: #00A1B0;
+}
+
+.sv-admin-main-wrapper .sv-admin-title-rightcontent-side ul li a:hover,
+.sv-admin-main-wrapper .sv-admin-sidebar.active .sv-admin-accordion li a.sidemenu-active i,
+.sv-admin-main-wrapper .sv-admin-accordion li a.sidemenu-active .menu-text,
+.sv-admin-main-wrapper li a:hover i {
+  color: #00A1B0 !important;
+}
+
+.custom-radio .custom-control-input:checked ~ .custom-control-label::before,
+ul.checklist li:before,
+.featured-services .hex-hover,
+.signup-btn:hover,
+.login-register .sub-btn,
+.cs-howwork-video-icon-inner-two,
+.nav-menu ul li a.login-menu:hover,
+.header-inner.login-register-header .nav-menu ul li a.login-menu,
+.header-inner.shrink .nav-menu ul li a.login-menu,
+.cs-how-work .signle-work-one .icon-block .inner-block,
+.cs-title.cs-block-style-one .cs-tag-line:after,
+.cs-title.cs-block-style-two .cs-tag-line:before,
+.cs-title.cs-block-style-two .cs-tag-line:after,
+.cs-title.cs-block-style-two .cs-tag-line:before,
+.cs-title.cs-block-style-two .cs-tag-line:after,
+.service-search-button,
+.cs-service-search .cs-service-dropdown .list .item.selected,
+.cs-service-search .cs-service-dropdown .list .item:hover,
+.theme-btn {
+  background-color: #00A1B0;
+}
+
+.signup-btn,
+.order-back-btn:hover,
+.carousel-control-prev-icon,
+.carousel-control-next-icon,
+.header-inner.login-register-header .nav-menu ul li a:hover,
+.header-inner.shrink .nav-menu ul li a:hover,
+.header-inner.login-register-header .nav-menu ul li a.menu-active,
+.header-inner.shrink .nav-menu ul li a.menu-active,
+.header-inner.login-register-header .mobile-toggle,
+.header-inner.shrink .mobile-toggle,
+.top-footer h1,
+.owl-next:before,
+.owl-prev:before,
+.cs-service-box .cs-service-readmore,
+.cs-title.cs-block-style-one .cs-tag-line,
+.cs-service-search .cs-service-dropdown .service-select:after,
+.cs-title.cs-block-style-two .cs-tag-line {
+  color: #00A1B0;
+}
+
+.signup-btn,
+.header-inner.login-register-header .nav-menu ul li a.login-menu,
+.header-inner.shrink .nav-menu ul li a.login-menu,
+.contact-form .form-control:focus {
+  border: 1px solid #00A1B0;
+}
+
+.header-inner.login-register-header .login-menu,
+.header-inner.shrink .login-menu {
+  background-color: #00A1B0 !important;
+  border: 1px solid #00A1B0 !important;
+}
+
+.login-menu:hover {
+  background-color: #00A1B0 !important;
+}
+
+.header-inner.login-register-header .mobile-toggle,
+.header-inner.shrink .mobile-toggle {
+  color: #00A1B0 !important;
+}
+
+@media (max-width: 767px) {
+  .nav-menu ul li a.menu-active {
+    color: #00A1B0;
+  }
+}
+/*# sourceMappingURL=style.css.map */

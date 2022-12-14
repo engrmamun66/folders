@@ -1,0 +1,12 @@
+node_modules
+*.log*
+.nuxt
+.nitro
+.cache
+.output
+.env
+dist
+.vscode
+
+# json-server --watch db.json --port 3004
+db.json

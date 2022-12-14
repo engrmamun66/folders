@@ -1,0 +1,2299 @@
+/*====================== 
+Default css 
+========================*/
+:root {
+    --bgcolor-primary: #05c361;
+    --bgcolor-secondary: #0d9d59;
+    --bgcolor-tertiary: #1e1e2d;
+    --bgcolor-navyblue-light: #2e2e3c4d;
+    --bgcolor-navyblue-light-1: #242433;
+	--bgcolor-white: #ffffff;
+	--bgcolor-black: #000000;
+	--bgcolor-lightgray: #F5F5F5;
+	--bgcolor-lightgray-1: #f2f3f8;
+
+    --fontcolor-primary: #05c361;
+	--fontcolor-secondary: #1e1e2d;
+	--fontcolor-tertiary: #adadaf;
+	--fontcolor-white: #ffffff;
+	--fontcolor-darkwhite-1: #f2f3f8;
+	--fontcolor-darkwhite-2: #eeeeee;
+	--fontcolor-darkwhite-3: #dddddd;
+	--fontcolor-darkwhite-4: #cccccc;
+	--fontcolor-dark: #181c32;
+	--fontcolor-gray: #777777;
+	--fontcolor-black-1: #111111;
+	--fontcolor-black-3: #333333;
+	--fontcolor-black-6: #666666;
+	--fontcolor-black-7: #777777;
+	--fontcolor-black-8: #888888;
+
+    --linecolor-primary: #05c361;
+    --linecolor-tertiary: #adadaf;
+    --linecolor-navyblue: #1e1e2d;
+    --linecolor-navyblue-light: #2d2d3c;
+    --linecolor-navyblue-light-1: #2a2a3a;
+	--linecolor-black: #242433;
+	--linecolor-white: #ffffff;
+	--linecolor-lightgray: #eeeeee;
+	--linecolor-lightgray-1: #f2f3f8;
+
+    --box-shadow-1: 0 10px 30px 0 rgba(82, 63, 105, .08);
+    --box-shadow-2:  0 1px 15px 1px rgba(69, 65, 78, .08);
+    --box-shadow-3: 0px 0px 10px #eeeeee;
+    --box-shadow-4: 0px 3px 6px #00000029;
+
+    --fontfamily-primary: 'Poppins', sans-serif;
+}
+*,
+ ::after,
+ ::before {
+    box-sizing: border-box;
+}
+body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: var(--fontfamily-primary);
+    font-size: 15px;
+    color: var(--fontcolor-dark);
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: var(--fontfamily-primary);
+    margin: 0;
+    padding: 0;
+    line-height: 25px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--fontcolor-dark);
+}
+p {
+    padding: 0;
+    margin: 0;
+    font-family: var(--fontfamily-primary);
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+    color: var(--fontcolor-gray);
+}
+samp,
+span {
+    font-family: var(--fontfamily-primary);
+    font-weight: 300;
+    letter-spacing: 0.2px;
+}
+strong,
+b {
+    font-family: var(--fontfamily-primary);
+    font-weight: 500;
+}
+a {
+    font-family: var(--fontfamily-primary);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+ol,
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+ul li {
+    font-family: var(--fontfamily-primary);
+    font-weight: 300;
+    letter-spacing: 0.2px;
+}
+ul li a,
+ul li p {
+    font-family: var(--fontfamily-primary);
+    font-weight: 300;
+    letter-spacing: 0.2px;
+}
+ul li a:hover {
+    text-decoration: none;
+}
+button {
+    outline: 0;
+    box-shadow: none;
+}
+button:hover,
+button:focus,
+button:active {
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+form {
+    width: 100%;
+}
+.col-form-label,
+label {
+    color: var(--fontcolor-tertiary);
+    font-size: 16px;
+    line-height: 15px;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 5px;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-control:focus {
+    outline: 0;
+    box-shadow: none !important;
+}
+hr {
+    border: 0;
+    width: 100%;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, transparent, rgba(0, 0, 0, 0.2), transparent);
+}
+table {
+    margin-bottom: 0 !important;
+}
+table tr th,
+table tr td {
+    font-family: var(--fontfamily-primary);
+    color: var(--fontcolor-gray);
+    font-size: 14px;
+    font-weight: 500;
+}
+table tr th {
+    color: var(--fontcolor-dark);
+}
+table tr td,
+table tr td p,
+table tr td a {
+    color: var(--fontcolor-gray);
+    font-weight: 400;
+    font-size: 14px;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #F3F4F8 !important;
+}
+@media (max-width: 575px) {
+    .table-responsive {
+        display: block;
+    }
+    table tr th,
+    table tr td {
+        font-size: 12px !important;
+    }
+    table tr td,
+    table tr td p,
+    table tr td a {
+        font-size: 12px !important;
+    }
+}
+
+
+/*======================= 
+Global custom class css
+==========================*/
+.btn {
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 3px;
+}
+.fullheight-100 {
+    height: 100%;
+}
+
+
+
+/*======================= 
+Modal css
+==========================*/
+.modal {
+    background-color: rgb(0 0 0 / 40%) !important;
+}
+.modal-content {
+    background-color: var(--bgcolor-tertiary);
+    border: 1px solid #2c2c2c;
+    box-shadow: 0px 17px 50px #040000;
+}
+.modal .btn-close {
+    background: none;
+    color: var(--fontcolor-tertiary);
+}
+.modal .btn-close i {
+    font-size: 18px;
+}
+.modal-header {
+    border-bottom: 1px solid var(--linecolor-black);
+}
+.modal-title {
+    color: var(--fontcolor-tertiary);
+}
+.modal-footer {
+    border-top: 1px solid var(--linecolor-black);
+}
+
+
+
+
+/*======================= 
+all admin css
+==========================*/
+.leap-admin-body {
+    /* background-color: var(--bgcolor-lightgray); */
+    background-color: var(--bgcolor-navyblue-light-1);
+}
+.leap-admin-main-wrapper {
+    display: flex;
+    align-items: stretch;
+}
+.leap-admin-main-wrapper .navbar-middle {
+    display: table;
+    width: 100%;
+}
+.leap-admin-main-wrapper .navbar-left-side {
+    display: table-cell;
+    width: auto;
+    vertical-align: middle;
+    height: 100%;
+}
+.leap-admin-main-wrapper .leftside-top-nav {
+    height: 100%;
+}
+.leap-admin-main-wrapper .leftside-top-nav .leftside-navmenu {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.leap-admin-main-wrapper .leftside-top-nav .leftside-navmenu li {
+    display: flex;
+    align-items: center;
+    -webkit-box-align: center;
+    height: 100%;
+    margin-right: 5px;
+}
+.leap-admin-main-wrapper .leftside-top-nav .leftside-navmenu li a {
+    display: block;
+    color: var(--fontcolor-dark);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+.leap-admin-main-wrapper .leftside-top-nav .leftside-navmenu li a:hover {
+    background-color: var(--bgcolor-lightgray-1);
+    border-radius: 3px;
+}
+.leap-admin-main-wrapper .leftside-top-nav .leftside-navmenu li a:hover span {
+    color: var(--bgcolor-primary);
+}
+.leap-admin-main-wrapper .leftside-top-nav .leftside-navmenu li a.selected {
+    background-color: var(--linecolor-navyblue-light-1);
+    color: var(--fontcolor-tertiary);
+    border-radius: 3px;
+}
+.leap-admin-main-wrapper .leftside-top-nav .leftside-navmenu li a.selected span {
+    color: var(--bgcolor-primary);
+}
+.leap-admin-main-wrapper .navbar {
+    position: fixed;
+    background-color: var(--bgcolor-tertiary);
+    width: 100%;
+    height: 70px;
+    margin-bottom: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    z-index: 9;
+}
+
+
+/*=========================== 
+Sidebar css 
+============================= */
+.leap-admin-main-wrapper .leap-admin-sidebar {
+    position: fixed;
+    background: var(--bgcolor-tertiary);
+    width: 80px;
+    height: 100%;
+    color: var(--fontcolor-white);
+    border-right: 1px solid var(--linecolor-black);
+    z-index: 9;
+    transition: all 0.3s;
+}
+.leap-admin-main-wrapper .leap-admin-sidebar.active {
+    width: 280px;
+}
+.leap-admin-main-wrapper .sidebar-header {
+    background-color: var(--bgcolor-tertiary);
+    height: 71px;
+    border-bottom: 1px solid var(--linecolor-black);
+    text-align: right;
+}
+.leap-admin-main-wrapper .sidebar-header img {
+    float: left;
+    width: 77px;
+    display: inline-block;
+    padding-left: 15px;
+    margin-top: 0;
+    transition: all .3s;
+}
+.leap-admin-main-wrapper .leap-admin-sidebar .sidebar-header img,
+.leap-admin-main-wrapper .leap-admin-sidebar .CTAs {
+    display: none;
+}
+.leap-admin-main-wrapper .leap-admin-sidebar.active .sidebar-header img,
+.leap-admin-main-wrapper .leap-admin-sidebar.active .CTAs {
+    display: block;
+}
+.leap-admin-main-wrapper .leap-admin-collapes-area {
+    display: table-cell;
+    height: 100%;
+    width: 80px;
+    text-align: center;
+    vertical-align: middle;
+}
+.leap-admin-main-wrapper .leap-admin-collapes-area .sidebar-leftmenu-icon,
+.leap-admin-main-wrapper .leap-admin-collapes-area .sidebar-rightmenu-icon {
+    transition: all .3s;
+    cursor: pointer;
+}
+.leap-admin-main-wrapper .leap-admin-sidebar.active .sidebar-leftmenu-icon {
+    display: block;
+}
+.leap-admin-main-wrapper .leap-admin-sidebar .sidebar-leftmenu-icon {
+    display: none;
+}
+.leap-admin-main-wrapper .leap-admin-sidebar.active .sidebar-rightmenu-icon {
+    display: none;
+}
+.leap-admin-main-wrapper .leap-admin-sidebar .sidebar-rightmenu-icon {
+    display: block;
+}
+.leap-admin-main-wrapper .sidebar-leftmenu-icon .lni {
+    display: inline-block;
+    margin-right: -9px;
+    font-weight: bold;
+}
+.leap-admin-main-wrapper .sidebar-leftmenu-icon .lni:first-child {
+    color: #5f5f6e;
+}
+.leap-admin-main-wrapper .sidebar-leftmenu-icon .lni:last-child {
+    color: #494b74;
+}
+.leap-admin-main-wrapper .leap-admin-collapes-area:hover .sidebar-leftmenu-icon .lni:first-child {
+    color: var(--bgcolor-primary);
+}
+.leap-admin-main-wrapper .leap-admin-collapes-area:hover .sidebar-leftmenu-icon .lni:last-child {
+    color: #094b94;
+}
+.leap-admin-main-wrapper .sidebar-rightmenu-icon .lni {
+    display: inline-block;
+    margin-left: -8px;
+    font-weight: bold;
+}
+.leap-admin-main-wrapper .sidebar-rightmenu-icon .lni:first-child {
+    color: #094b94;
+}
+.leap-admin-main-wrapper .sidebar-rightmenu-icon .lni:last-child {
+    color: #1b7dea;
+}
+
+
+/*====================== 
+Accoridion menu css 
+========================*/
+.leap-admin-main-wrapper .leap-admin-accordion {
+    width: 100%;
+    max-width: 360px;
+    margin: 20px auto 20px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    height: 100%;
+}
+.leap-admin-main-wrapper .leap-admin-accordion li a {
+    cursor: pointer;
+    display: block;
+    padding: 12px 15px;
+    font-size: 14px;
+    border-bottom: 1px solid #242433;
+    position: relative;
+    transition: all 0.4s ease;
+    font-weight: 400;
+    position: relative;
+}
+.leap-admin-main-wrapper .leap-admin-accordion li:last-child a {
+    border-bottom: 0;
+}
+.leap-admin-main-wrapper .leap-admin-accordion li.open a {
+    color: #fff;
+}
+.leap-admin-main-wrapper .leap-admin-accordion li a:hover {
+    background-color: #1B1B29;
+}
+.leap-admin-main-wrapper .leap-admin-accordion li a {
+    text-align: center;
+}
+.leap-admin-main-wrapper .leap-admin-accordion li a i {
+    position: unset;
+    margin-right: 0;
+    display: block;
+    font-size: 38px;
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: #494b74;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+.leap-admin-main-wrapper .leap-admin-accordion li a .menu-text {
+    display: none;
+}
+.leap-admin-main-wrapper .leap-admin-accordion li a .menu-plusminus-icon {
+    display: none;
+}
+.leap-admin-main-wrapper .leap-admin-accordion li ul {
+    display: none;
+}
+.leap-admin-main-wrapper .leap-admin-sidebar.active .leap-admin-accordion li a i {
+    float: left;
+    position: unset;
+    margin-right: 0;
+    display: inline-block;
+    font-size: 20px;
+    margin-bottom: 0;
+    margin-right: 15px;
+}
+.leap-admin-main-wrapper .leap-admin-sidebar.active .leap-admin-accordion li a i {
+    color: #9d9da6;
+    opacity: .9;
+}
+.leap-admin-main-wrapper .leap-admin-sidebar.active .leap-admin-accordion li a .menu-text {
+    display: inline-block;
+    color: #9d9da6;
+    font-weight: 400 !important;
+}
+.leap-admin-main-wrapper .leap-admin-sidebar.active .leap-admin-accordion li a:hover .menu-text,
+.leap-admin-main-wrapper .leap-admin-sidebar.active .leap-admin-accordion li a.sidemenu-active .menu-text {
+    color: #fff;
+}
+.leap-admin-main-wrapper .leap-admin-sidebar.active .leap-admin-accordion li a .menu-plusminus-icon {
+    position: absolute;
+    right: 10px;
+    top: 16px;
+    display: block;
+    color: #9d9da6;
+}
+.leap-admin-main-wrapper .menu-plusminus-icon i {
+    font-size: 10px !important;
+    transition: all .3s !important;
+    font-weight: bold !important;
+    color: #9d9da6 !important;
+}
+.leap-admin-main-wrapper .leap-admin-sidebar.active .leap-admin-accordion li a .menu-icon i {
+    color: #5c5e81;
+}
+.leap-admin-main-wrapper .leap-admin-sidebar.active .leap-admin-accordion li a {
+    color: #fff;
+    /* opacity: .9; */
+    text-align: unset;
+}
+.leap-admin-main-wrapper .leap-admin-sidebar.active .leap-admin-accordion li a {
+    display: block;
+    padding: 12px 15px;
+    font-weight: 400;
+}
+.leap-admin-main-wrapper .leap-admin-accordion li a:hover i {
+    color: var(--bgcolor-primary) !important;
+}
+.leap-admin-main-wrapper .leap-admin-accordion li a:hover .menu-text,
+.leap-admin-main-wrapper .leap-admin-accordion li a:hover {
+    color: var(--bgcolor-primary) !important;
+}
+/* .leap-admin-main-wrapper .leap-admin-sidebar.active .leap-admin-accordion li a:hover .menu-text {
+    color: #3699FF;
+} */
+.leap-admin-main-wrapper .leap-admin-accordion li a:hover .menu-icon {
+    color: #fff !important;
+}
+.leap-admin-accordion li a.active {
+    background-color: #1B1B29 !important;
+}
+/* 
+.leap-admin-main-wrapper .leap-admin-sidebar.active .leap-admin-accordion li a.sidemenu-active i {
+    color: #3699FF !important;
+}
+.leap-admin-main-wrapper .leap-admin-accordion li a.sidemenu-active .menu-text {
+    color: #3699FF !important;
+} */
+
+
+/*============================
+Accordion sub menu css 
+===============================*/
+.leap-admin-main-wrapper .accord-submenu {
+    background-color: #1B1B29;
+    font-size: 14px;
+    display: none;
+    border-top: 1px solid #1B1B29;
+    transition: .3s;
+}
+.leap-admin-main-wrapper .accord-submenu li {
+    border-bottom: 1px solid #1B1B29;
+}
+.leap-admin-main-wrapper .accord-submenu li a {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 12px;
+    padding-left: 42px;
+    -webkit-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+.leap-admin-main-wrapper .accord-submenu li a i {
+    font-size: 9px;
+    left: 28PX;
+    top: 17px;
+}
+.leap-admin-main-wrapper .accord-submenu a:hover {
+    background: #066f36;
+    color: #FFF;
+}
+.leap-admin-main-wrapper .sidebar.active .accord-submenu a {
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 15px;
+}
+
+
+/*======================= 
+Admin Content css 
+=========================*/
+.leap-admin-main-wrapper .navbar {
+    padding-left: 292px;
+    transition: all 0.3s;
+}
+.leap-admin-main-wrapper #leap-admin-main-container {
+    width: 100%;
+    transition: all 0.3s;
+    margin-left: 280px;
+    margin-top: 70px;
+    padding: 0 30px;
+}
+.leap-admin-main-wrapper #leap-admin-main-container.margin_left {
+    margin-left: 80px;
+}
+.leap-admin-main-wrapper .navbar.margin_left {
+    padding-left: 92px;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+    .leap-admin-main-wrapper .navbar-logo img {
+        margin-top: 18px !important;
+        width: 170px !important;
+        margin-left: 15px !important;
+    }
+}
+@media (max-width: 767px) {
+    .leap-admin-main-wrapper .navbar {
+        z-index: 9;
+    }
+    .leap-admin-main-wrapper .navbar-logo img {
+        display: block;
+        margin-top: 26px;
+        width: 110px;
+    }
+    .leap-admin-main-wrapper #leap-admin-main-container {
+        margin-left: 0px;
+    }
+    .leap-admin-main-wrapper #leap-admin-main-container.margin_left {
+        margin-left: 0px;
+    }
+    .leap-admin-main-wrapper .leap-admin-sidebarCollapse {
+        display: inline-block;
+    }
+    .leap-admin-main-wrapper .sidebar {
+        min-width: 220px;
+        max-width: 220px;
+        text-align: center;
+        margin-left: 0px !important;
+        z-index: 1;
+    }
+    .leap-admin-main-wrapper .dropdown-toggle::after {
+        top: auto;
+        bottom: 10px;
+        right: 50%;
+        -webkit-transform: translateX(50%);
+        -ms-transform: translateX(50%);
+        transform: translateX(50%);
+    }
+    .leap-admin-main-wrapper .sidebar.active {
+        margin-left: -220px !important;
+    }
+    .leap-admin-main-wrapper .sidebar-header img {
+        display: none;
+    }
+    .leap-admin-main-wrapper .sidebar-header {
+        text-align: center;
+    }
+    .leap-admin-main-wrapper .sidebar .sidebar-header strong {
+        display: block;
+    }
+    .leap-admin-main-wrapper .sidebar {
+        margin-left: 0;
+    }
+}
+@media (max-width: 991px) {
+    .leap-admin-main-wrapper .navbar {
+        background-color: #fff;
+    }
+    .leap-admin-main-wrapper .leap-admin-sidebar.active {
+        margin-left: -350px;
+    }
+    .leap-admin-main-wrapper .navbar.margin_left {
+        padding-left: 0;
+    }
+    .leap-admin-main-wrapper .navbar {
+        padding-left: 0;
+    }
+    .leap-admin-main-wrapper .leap-admin-sidebar {
+        width: 270px;
+        border-right: 1px solid #f2f3f8;
+    }
+    .leap-admin-main-wrapper .leap-admin-accordion li a .menu-text {
+        display: inline-block;
+    }
+    .leap-admin-main-wrapper .leap-admin-sidebar .sidebar-header img,
+    .leap-admin-main-wrapper .leap-admin-sidebar .CTAs {
+        display: block;
+    }
+    .leap-admin-main-wrapper .leap-admin-sidebar .sidebar-leftmenu-icon {
+        display: none;
+    }
+    .leap-admin-main-wrapper .leap-admin-sidebar .sidebar-rightmenu-icon {
+        display: block;
+    }
+    .leap-admin-main-wrapper .leap-admin-sidebar .sidebar-rightmenu-icon {
+        display: block;
+    }
+    /*=========================== 
+    accoridion menu css 
+    ==============================*/
+    .leap-admin-main-wrapper .leap-admin-sidebar .leap-admin-accordion li a i {
+        float: left;
+        position: unset;
+        margin-right: 0;
+        display: inline-block;
+        font-size: 18px;
+        margin-bottom: 0;
+        margin-right: 15px;
+        margin-top: 2px;
+        font-weight: bold;
+    }
+    .leap-admin-main-wrapper .leap-admin-sidebar .leap-admin-accordion li a i {
+        color: #494b74;
+        opacity: .9;
+    }
+    .leap-admin-main-wrapper .leap-admin-sidebar .leap-admin-accordion li a .menu-text {
+        display: inline-block;
+        color: #a2a3b7;
+        font-weight: 300 !important;
+    }
+    .leap-admin-main-wrapper .leap-admin-sidebar .leap-admin-accordion li a .menu-plusminus-icon {
+        position: absolute;
+        right: 10px;
+        top: 16px;
+        display: block;
+    }
+    .leap-admin-main-wrapper .leap-admin-sidebar .leap-admin-accordion li a .menu-icon i {
+        color: #5c5e81;
+    }
+    .leap-admin-main-wrapper .leap-admin-sidebar .leap-admin-accordion li a {
+        color: #fff;
+        opacity: .9;
+        text-align: unset;
+    }
+    .leap-admin-main-wrapper .leap-admin-sidebar .leap-admin-accordion li a {
+        display: block;
+        padding: 12px 15px;
+        font-weight: 400;
+    }
+    .leap-admin-main-wrapper .sidebar .accord-submenu a {
+        padding-left: 15px;
+        padding-right: 15px;
+        font-size: 15px;
+    }
+    .leap-admin-main-wrapper #leap-admin-main-container {
+        padding: 0 15px;
+        margin-left: 0;
+    }
+}
+
+
+/*========================== 
+Admin dropdown 
+=============================*/
+
+.leap-admin-main-wrapper li.leap-admin-dropdown {
+    position: relative;
+}
+
+.leap-admin-main-wrapper ul.leap-admin-dropdown-menu {
+    display: none;
+}
+
+.leap-admin-main-wrapper .leap-admin-dropdown-menu {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 10rem;
+    padding: 15px 0;
+    margin: .125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border-radius: .25rem;
+}
+
+.leap-admin-main-wrapper .leap-admin-dropdown-menu:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid #fff;
+    position: absolute;
+    top: -8px;
+    border-radius: 17px;
+    left: 28px;
+}
+
+.leap-admin-main-wrapper .leap-admin-dropdown-menu {
+    background-color: #fff;
+    box-shadow: 0 15px 50px 0 rgba(82, 63, 105, .15);
+    position: absolute;
+    min-width: 275px;
+}
+
+.leap-admin-main-wrapper .leap-admin-dropdown-menu li {
+    display: block !important;
+    white-space: nowrap;
+}
+
+.leap-admin-main-wrapper .leap-admin-dropdown-menu li a {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.leap-admin-main-wrapper .leap-admin-dropdown-menu li a i {
+    margin-right: 12px;
+    font-size: 14px;
+}
+
+.leap-admin-main-wrapper .leap-admin-dropdown-menu li a:hover {
+    background-color: #f2f3f8;
+    color: #3699FF;
+}
+
+.leap-admin-main-wrapper .leap-admin-dropdown-menu ul.leap-admin-dropdown-menu {
+    left: 100%;
+    top: 0;
+    background-color: #fff !important;
+}
+
+.leap-admin-main-wrapper .logo-area-inner {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    height: 100%;
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+}
+
+.leap-admin-main-wrapper .logo-area-middle {
+    display: table-cell;
+    height: 60px;
+    vertical-align: middle;
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+}
+
+
+
+/*=========================== 
+Header Rightside css 
+==============================*/
+.leap-admin-main-wrapper .navbar-right-side {
+    display: table-cell;
+    width: auto;
+    vertical-align: middle;
+    padding-right: 15px;
+    float: right;
+    height: 100%;
+}
+.leap-admin-main-wrapper .rightside-top-nav {
+    height: 100%;
+}
+.leap-admin-main-wrapper .rightside-top-nav .rightside-navmenu {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.leap-admin-main-wrapper .rightside-top-nav .rightside-navmenu li.leap-admin-right-dropdown {
+    display: flex;
+    align-items: center;
+    -webkit-box-align: center;
+    height: 100%;
+}
+.leap-admin-main-wrapper .rightside-top-nav .rightside-navmenu li.leap-admin-right-dropdown a.leap-admin-dropdown-link {
+    display: block;
+    color: var(--fontcolor-tertiary);
+    font-size: 20px;
+    font-weight: 500;
+    padding: 5px 12px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.leap-admin-main-wrapper .rightside-top-nav .rightside-navmenu li.leap-admin-right-dropdown a.leap-admin-dropdown-link i {
+    font-size: 24px;
+}
+.leap-admin-main-wrapper .rightside-top-nav .rightside-navmenu li.leap-admin-right-dropdown a.leap-admin-dropdown-link:hover {
+    background-color: var(--bgcolor-navyblue-light-1);
+    color: var(--fontcolor-tertiary);
+}
+.leap-admin-main-wrapper .rightside-top-nav .rightside-navmenu li.leap-admin-right-dropdown a.leap-admin-dropdown-link:hover span {
+    color: #3699FF;
+}
+
+
+/*========================== 
+header Dropdown css
+=============================*/
+.leap-admin-main-wrapper li.leap-admin-right-dropdown {
+    position: relative;
+}
+.leap-admin-main-wrapper .leap-admin-rightside-dropdown {
+    display: none;
+}
+.leap-admin-main-wrapper .leap-admin-rightside-dropdown {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    background-color: #fff;
+    background-clip: padding-box;
+    min-width: 350px;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    padding: 0;
+    margin: .125rem 0 0;
+    border-radius: .25rem;
+}
+.leap-admin-main-wrapper .leap-admin-rightside-dropdown:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid #3046AC;
+    position: absolute;
+    top: -8px;
+    border-radius: 17px;
+    right: 12px;
+}
+.leap-admin-main-wrapper .leap-admin-rightside-dropdown {
+    background-color: var(--bgcolor-tertiary);
+    /* box-shadow: 0 15px 50px 0 rgba(82, 63, 105, .15); */
+    position: absolute;
+    min-width: 350px;
+}
+.leap-admin-main-wrapper .leap-admin-rightside-dropdown ul.leap-admin-rightside-dropdown {
+    left: 100%;
+    top: 0;
+    background-color: #fff !important;
+}
+.leap-admin-main-wrapper .rightside-top-nav .rightside-navmenu li ul li {
+    margin-right: 0;
+}
+.leap-admin-main-wrapper .leap-admin-rightside-topbar {
+    display: flex;
+    background-image: url("../img/bg-1.jpg");
+    background-size: cover;
+    height: 100px;
+    align-items: center;
+    border-radius: .25rem .25rem 0 0;
+}
+.leap-admin-main-wrapper .leap-admin-rightside-topbar h4 {
+    font-size: 18px;
+    font-weight: 400 !important;
+    letter-spacing: 0.5px;
+}
+.leap-admin-main-wrapper .leap-admin-rightside-topbar h4 span {
+    font-size: 18px;
+    font-weight: 400 !important;
+    letter-spacing: 0.5px;
+}
+.leap-admin-main-wrapper .leap-admin-rightside-topbar h4 .btn.btn-success {
+    padding: 8px .75rem;
+    font-size: 12px;
+    line-height: 1.35;
+    border-radius: .42rem;
+}
+.leap-admin-main-wrapper .btn.btn-success {
+    color: #fff;
+    background-color: #02b05b;
+    border-color: rgb(20, 151, 145);
+}
+.leap-admin-main-wrapper .leap-admin-rightside-body {
+    display: flex;
+    padding: 20px;
+}
+.leap-admin-main-wrapper .leap-admin-notification {
+    width: 100%;
+    display: block !important;
+}
+.leap-admin-main-wrapper .leap-admin-notification li {
+    width: 100%;
+    display: inline-block;
+    height: unset !important;
+}
+.leap-admin-main-wrapper .leap-admin-notification li a {
+    width: 100%;
+    display: block;
+    padding: 5px 5px !important;
+    transition: all .3s;
+}
+.leap-admin-main-wrapper .notification-title {
+    width: 100%;
+    display: inline-block;
+    font-weight: 600 !important;
+    color: #181c32;
+    font-size: 14px;
+}
+.leap-admin-main-wrapper .notification-mutetitle {
+    width: 100%;
+    display: inline-block;
+    color: #b5b5c3;
+    font-size: 12px;
+    font-weight: 400 !important;
+}
+.leap-admin-main-wrapper .leap-admin-notification li a:hover {
+    background-color: #f2f3f8;
+    color: #3699FF;
+    padding: 5px 15px !important;
+}
+.leap-admin-main-wrapper .leap-admin-notification li a:hover .notification-title {
+    color: #3699FF;
+}
+
+
+
+/*========================= 
+Header action css 
+============================*/
+.leap-admin-main-wrapper .leap-admin-action-box {
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    display: table;
+}
+.leap-admin-main-wrapper .leap-admin-action-box-inner {
+    width: 100%;
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+}
+.leap-admin-main-wrapper .leap-admin-action-box .leap-admin-action-icon {
+    width: 100%;
+}
+.leap-admin-main-wrapper .leap-admin-action-box .leap-admin-action-icon i {
+    font-size: 25px;
+    color: #2280de;
+    font-weight: bold;
+}
+.leap-admin-main-wrapper .leap-admin-action-box .leap-admin-action-title {
+    width: 100%;
+    color: #3f4254;
+    font-size: 15px;
+    padding-top: 5px;
+}
+.leap-admin-main-wrapper .leap-admin-action-box .leap-admin-action-subtitle {
+    width: 100%;
+    color: #7e8299;
+    font-size: 13px;
+    font-weight: 500 !important;
+}
+.leap-admin-main-wrapper .action-rightborder {
+    border-right: 1px solid #f2f3f8;
+}
+.leap-admin-main-wrapper .action-bottomborder {
+    border-bottom: 1px solid #f2f3f8;
+}
+
+
+/*========================= 
+Header user css 
+============================*/
+.leap-admin-main-wrapper .usermail {
+    display: inline-block;
+    width: 100%;
+    color: #ddd;
+    font-weight: 300 !important;
+    font-size: 12px !important;
+    line-height: 0 !important;
+}
+.leap-admin-main-wrapper .leap-admin-userprofile-menu {
+    display: block !important;
+}
+.leap-admin-main-wrapper .leap-admin-userprofile-menu li {
+    display: inline-block;
+    width: 100%;
+}
+.leap-admin-main-wrapper .leap-admin-userprofile-menu li a {
+    color: var(--fontcolor-tertiary);
+    font-size: 14px;
+    font-weight: 400;
+    padding: 10px 10px;
+    display: block;
+}
+.leap-admin-main-wrapper .leap-admin-userprofile-menu li a i {
+    margin-right: 5px;
+}
+.leap-admin-main-wrapper .leap-admin-userprofile-menu li a:hover {
+    color: var(--fontcolor-primary);
+}
+.leap-admin-main-wrapper .logout-btn {
+    border: 1px solid var(--linecolor-tertiary);
+    width: 130px;
+    text-align: center;
+    border-radius: 100px;
+    transition: all .3s;
+}
+.leap-admin-main-wrapper .logout-btn:hover {
+    background-color: var(--bgcolor-primary);
+    border: 1px solid var(--linecolor-primary);
+    color: var(--fontcolor-white);
+}
+
+
+/*=============================
+Header responsive css 
+===============================*/
+.leap-admin-main-wrapper .leap-admin-headermenu-responsive,
+.leap-admin-main-wrapper .leap-admin-header-logo-responsive {
+    display: none;
+}
+@media (max-width: 991px) {
+    .leap-admin-main-wrapper .leap-admin-headermenu-responsive {
+        display: table-cell;
+        float: right;
+        width: auto;
+        height: 100%;
+        vertical-align: middle;
+    }
+    .leap-admin-main-wrapper .leap-admin-header-logo-responsive {
+        display: table-cell;
+        float: left;
+        width: auto;
+        height: 100%;
+    }
+    .leap-admin-main-wrapper .navbar-left-side,
+    .leap-admin-main-wrapper .navbar-right-side {
+        display: none;
+    }
+    .leap-admin-main-wrapper .leap-admin-header-logo-responsive img {
+        width: 60px;
+    }
+    .leap-admin-main-wrapper .leap-admin-header-logo-responsive .logo-area-inner {
+        table-layout: unset;
+        padding-left: 15px;
+    }
+    .leap-admin-main-wrapper .leap-admin-headermenu-responsive ul {
+        height: 100%;
+        display: table;
+        padding-right: 15px;
+    }
+    .leap-admin-main-wrapper .leap-admin-headermenu-responsive ul li {
+        display: table-cell;
+        vertical-align: middle;
+        position: relative;
+    }
+    .leap-admin-main-wrapper .leap-admin-headermenu-responsive ul li a {
+        padding: 8px 10px;
+    }
+    .leap-admin-main-wrapper .leap-admin-headermenu-responsive ul li a i {
+        font-weight: bold;
+        font-size: 18px;
+        color: #5e6682;
+    }
+    .leap-admin-main-wrapper .navbar-left-side {
+        position: absolute;
+        background-color: #fff;
+        width: 100%;
+        padding-left: 15px;
+        top: 70px;
+        border-top: 1px solid #f5f5f5;
+    }
+    .leap-admin-main-wrapper .leftside-top-nav .leftside-navmenu li:nth-child(2) .leap-admin-dropdown-menu {
+        left: -60px;
+    }
+    .leap-admin-main-wrapper .leftside-top-nav .leftside-navmenu li:nth-child(2) .leap-admin-dropdown-menu:before {
+        left: 95px;
+    }
+    .leap-admin-main-wrapper .leftside-top-nav .leftside-navmenu li:nth-child(3) .leap-admin-dropdown-menu {
+        left: -155px;
+    }
+    .leap-admin-main-wrapper .leftside-top-nav .leftside-navmenu li:nth-child(3) .leap-admin-dropdown-menu:before {
+        left: 180px;
+    }
+    .leap-admin-main-wrapper .navbar-right-side {
+        position: absolute;
+        background-color: #fff;
+        width: 100%;
+        padding-left: 15px;
+        top: 70px;
+        border-top: 1px solid #f5f5f5;
+    }
+    .leap-admin-main-wrapper .rightside-top-nav .rightside-navmenu {
+        float: right;
+    }
+    .leap-admin-main-wrapper .leap-admin-rightside-dropdown {
+        min-width: 310px;
+    }
+    .leap-admin-main-wrapper .rightside-top-nav .rightside-navmenu li:nth-child(1) .leap-admin-rightside-dropdown {
+        right: -140px;
+    }
+    .leap-admin-main-wrapper .rightside-top-nav .rightside-navmenu li:nth-child(1) .leap-admin-rightside-dropdown:before {
+        right: 150px;
+    }
+    .leap-admin-main-wrapper .rightside-top-nav .rightside-navmenu li:nth-child(2) .leap-admin-rightside-dropdown {
+        right: -90px;
+    }
+    .leap-admin-main-wrapper .rightside-top-nav .rightside-navmenu li:nth-child(2) .leap-admin-rightside-dropdown:before {
+        right: 102px;
+    }
+}
+
+
+/*===================== 
+Short menu css 
+=======================*/
+.leap-admin-main-wrapper .leap-admin-subheader .leap-admin-subheader__title.leap-admin-subheader__title--separator {
+    border-right: 1px solid #858587;
+}
+.leap-admin-main-wrapper .leap-admin-subheader .leap-admin-subheader__title {
+    display: inline-block;
+    color: #adadaf;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 500;
+    margin: 0 15px 0 0;
+    padding: 0px 25px 0px 0;
+    vertical-align: middle;
+}
+.leap-admin-main-wrapper .leap-admin-nav.leap-admin-nav--inline {
+    display: inline-block;
+    width: auto;
+    height: 100%;
+}
+.leap-admin-main-wrapper .leap-admin-nav.leap-admin-nav--inline>.leap-admin-nav__item {
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0;
+}
+.leap-admin-main-wrapper leap-admin-nav .leap-admin-nav__item>.leap-admin-nav__link {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    position: relative;
+    outline: none !important;
+    vertical-align: middle;
+    padding: 9px 0;
+    color: #898b96;
+    font-weight: 400 !important;
+}
+.leap-admin-main-wrapper .leap-admin-nav .leap-admin-nav__item>.leap-admin-nav__link span {
+    color: #898b96;
+    font-weight: 400 !important;
+}
+.leap-admin-main-wrapper .leap-admin-nav.leap-admin-nav--inline>.leap-admin-nav__item>.leap-admin-nav__link {
+    width: auto;
+    padding: 9px 0;
+}
+.leap-admin-main-wrapper .leap-admin-nav.leap-admin-nav--inline>.leap-admin-nav__separator {
+    height: auto;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 0 0 5px;
+    margin: 0;
+}
+.leap-admin-main-wrapper .leap-admin-subheader .leap-admin-subheader__breadcrumbs.leap-admin-nav>.leap-admin-nav__separator {
+    padding: 0 8px;
+    color: #898b96;
+}
+.leap-admin-main-wrapper .leap-admin-subheader ul li a {
+    color: #898b96;
+}
+
+
+/*======================
+Admin content css 
+=========================*/
+
+
+
+/*===================== 
+Admin table css 
+=======================*/
+.leap-admin-main-wrapper .table-sd tr th,
+.leap-admin-main-wrapper .table-sd tr td {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #7A8793;
+    border-top: none;
+    vertical-align: middle;
+}
+
+.leap-admin-main-wrapper .table-sd tr th {
+    background-color: #F3F6F9;
+    font-weight: 700 !important;
+    font-weight: 15px !important;
+}
+
+.leap-admin-main-wrapper .table tr td img {
+    width: 40px;
+}
+
+.leap-admin-main-wrapper .table tr td.table-action a {
+    background-color: #f3f6f9;
+    font-size: 14px;
+    padding: 6px 10px;
+    font-size: 15px;
+    border-radius: 3px;
+}
+
+.leap-admin-main-wrapper .table tr td.table-action a:hover {
+    color: #fff;
+}
+
+.leap-admin-main-wrapper .leap-admin-title-rightcontent-side ul {
+    padding: 0;
+}
+
+.leap-admin-main-wrapper .leap-admin-title-rightcontent-side ul li {
+    display: inline-block;
+    position: relative;
+    line-height: 21px;
+    text-align: left;
+}
+
+.leap-admin-main-wrapper .leap-admin-title-rightcontent-side ul li a {
+    display: block;
+    padding: 8px 15px;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.leap-admin-main-wrapper .leap-admin-title-rightcontent-side ul li a.more-btn-text {
+    background-color: #36a1b21f;
+    font-weight: 500;
+    font-size: 13px;
+    border-radius: 3px;
+}
+
+.leap-admin-main-wrapper .leap-admin-title-rightcontent-side ul li a.more-btn-text i {
+    font-size: 8px;
+    font-weight: bold;
+    margin-left: 2px;
+}
+
+.leap-admin-main-wrapper .leap-admin-title-rightcontent-side ul li a:hover {
+    background: #f3f6f9;
+}
+
+.leap-admin-main-wrapper .short-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 10rem;
+    padding: .5rem 0;
+    margin: .125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: none;
+    border-radius: .25rem;
+}
+
+.leap-admin-main-wrapper .leap-admin-title-rightcontent-side ul li ul.short-dropdown-menu {
+    width: 175px;
+    background: #fff;
+    box-shadow: 0 0 50px 0 rgba(82, 63, 105, .15);
+    display: none;
+    position: absolute;
+    z-index: 999;
+    left: unset;
+    right: 0;
+    padding: 10px 0;
+}
+
+.leap-admin-main-wrapper .leap-admin-title-rightcontent-side ul li ul.short-dropdown-menu li {
+    display: block;
+}
+
+.leap-admin-main-wrapper .leap-admin-title-rightcontent-side ul li ul.short-dropdown-menu li a {
+    color: #3f4254;
+    font-size: 13px;
+    font-weight: 400;
+    padding: 6px 15px;
+}
+
+.leap-admin-main-wrapper .leap-admin-title-rightcontent-side ul li ul.short-dropdown-menu li a i {
+    color: #b5b5c3;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.leap-admin-main-wrapper .leap-admin-title-rightcontent-side ul li ul.short-dropdown-menu li a:hover {
+    background-color: #f3f6f9;
+}
+
+.moremenu-shorttitle {
+    font-size: 14px;
+    padding-left: 15px;
+    font-weight: 400;
+    padding: 3px 15px;
+}
+
+@media (max-width: 575px) {
+    .table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .leap-admin-main-wrapper .table tr td.table-action a {
+        margin-bottom: 3px;
+        display: inline-block;
+    }
+}
+
+
+/*======================
+Form css 
+========================*/
+.leap-admin-main-wrapper .form-group label {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--fontcolor-tertiary);
+}
+.leap-admin-main-wrapper .form-control {
+    background-color: var(--bgcolor-navyblue-light-1);
+    width: 100%;
+    height: 40px;
+    color: var(--fontcolor-tertiary);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    background-clip: padding-box;
+    display: block;
+    border: 1px solid var(--linecolor-navyblue-light-1);
+    border-radius: 4px;
+    box-shadow: none;
+    transition: border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+}
+.leap-admin-main-wrapper select.form-control[multiple],
+.leap-admin-main-wrapper select.form-control[size] {
+    height: auto;
+}
+.leap-admin-main-wrapper textarea.form-control {
+    height: auto;
+}
+.leap-admin-main-wrapper .form-control:hover,
+.leap-admin-main-wrapper .form-control:focus,
+.leap-admin-main-wrapper .form-control:active {
+    background-color: var(--bgcolor-navyblue-light-1);
+    color: var(--fontcolor-tertiary);
+    border: 1px solid var(--linecolor-navyblue-light-1);
+    outline: 0;
+}
+.leap-admin-main-wrapper ::placeholder {
+    color: var(--fontcolor-tertiary);
+}
+.leap-admin-main-wrapper .form-group .form-text {
+    font-size: 11px;
+    font-weight: 400 !important;
+}
+.leap-admin-main-wrapper .text-muted {
+    color: var(--fontcolor-gray)!important;
+}
+.leap-admin-main-wrapper .form-text {
+    display: block;
+    margin-top: .25rem;
+}
+.leap-admin-main-wrapper .input-group-text {
+    display: flex;
+    align-items: center;
+    background-color: #f3f6f9 !important;
+    height: 40px;
+    color: var(--fontcolor-gray);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    white-space: nowrap;
+    padding: .65rem 1rem;
+    margin-bottom: 0;
+    border: 1px solid #e4e6ef !important;
+    border-radius: .42rem;
+}
+.leap-admin-main-wrapper .checkbox-inline {
+    display: flex;
+}
+.leap-admin-main-wrapper .checkbox {
+    display: flex;
+    align-items: center;
+    position: relative;
+    text-align: left;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all .3s ease;
+    margin: 0;
+}
+.leap-admin-main-wrapper .checkbox-inline .checkbox {
+    margin-right: 1rem;
+}
+.leap-admin-main-wrapper .form-group label.checkbox {
+    font-size: 14px;
+    font-weight: 400;
+    color: #3f4254;
+}
+.leap-admin-main-wrapper .checkbox>span {
+    background-color: #ebedf3;
+    border: 1px solid transparent;
+}
+.leap-admin-main-wrapper .checkbox>input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+.leap-admin-main-wrapper .checkbox>input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+.leap-admin-main-wrapper .checkbox>span {
+    background-color: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+}
+.leap-admin-main-wrapper .checkbox>input:checked~span {
+    background-color: #3699ff;
+}
+.leap-admin-main-wrapper .checkbox-inline .checkbox span {
+    margin-right: .75rem;
+}
+.leap-admin-main-wrapper .checkbox>span {
+    height: 18px;
+    width: 18px;
+    margin-right: 8px;
+}
+.leap-admin-main-wrapper .checkbox>span:after {
+    content: '';
+    border-color: transparent;
+    border-style: solid;
+    border-width: 0 2px 2px 0!important;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    margin-top: -2px;
+}
+.leap-admin-main-wrapper .checkbox>input:checked~span:after {
+    border-color: #fff;
+}
+.leap-admin-main-wrapper .checkbox>input:checked~span:after {
+    display: block;
+}
+.leap-admin-main-wrapper .checkbox>span:after {
+    width: 5px;
+    height: 10px;
+}
+.leap-admin-main-wrapper .checkbox.checkbox-disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+.leap-admin-main-wrapper .checkbox.checkbox-outline.checkbox-success>span {
+    background-color: transparent;
+    border-color: #d1d3e0;
+}
+.leap-admin-main-wrapper .checkbox-inline .checkbox span {
+    margin-right: .75rem;
+}
+.leap-admin-main-wrapper .checkbox.checkbox-success>span {
+    border: 1px solid transparent;
+}
+.leap-admin-main-wrapper .checkbox.checkbox-outline.checkbox-success>input:checked~span {
+    background-color: transparent;
+    border-color: #1bc5bd;
+}
+.leap-admin-main-wrapper .checkbox.checkbox-outline.checkbox-success>input:checked~span:after {
+    border-color: #1bc5bd;
+}
+
+
+/*========================== 
+Radio button css
+=============================*/
+
+.leap-admin-main-wrapper .radio-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.leap-admin-main-wrapper .radio {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    text-align: left;
+    cursor: pointer;
+    font-size: 1rem;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    margin: 0;
+}
+
+.leap-admin-main-wrapper .radio-list .radio {
+    margin-bottom: 1rem;
+}
+
+.leap-admin-main-wrapper .form-group label.ras {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #3f4254;
+}
+
+.leap-admin-main-wrapper .form-group label.radio {
+    margin-bottom: 10px;
+}
+
+.leap-admin-main-wrapper .radio>input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.leap-admin-main-wrapper .radio>span {
+    background-color: #ebedf3;
+    border: 1px solid transparent;
+}
+
+.leap-admin-main-wrapper .radio>span {
+    border-radius: 50%;
+    background-color: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.leap-admin-main-wrapper .radio>input:checked~span {
+    background-color: #3699ff;
+}
+
+.leap-admin-main-wrapper .radio>input:checked~span {
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    background-color: none;
+}
+
+.leap-admin-main-wrapper .radio-list .radio span {
+    margin-right: .75rem;
+}
+
+.leap-admin-main-wrapper .radio>span {
+    background-color: #ebedf3;
+    border: 1px solid transparent;
+}
+
+.leap-admin-main-wrapper .radio>span {
+    height: 18px;
+    width: 18px;
+    margin-right: 14px;
+}
+
+.leap-admin-main-wrapper .radio>span:after {
+    content: '';
+    display: none;
+    border-radius: 100%!important;
+}
+
+.leap-admin-main-wrapper .radio>input:checked~span:after {
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.leap-admin-main-wrapper .radio>input:checked~span:after {
+    display: block;
+}
+
+.leap-admin-main-wrapper .radio>span:after {
+    width: 6px;
+    height: 6px;
+}
+
+
+
+/*=====================
+Section title
+=======================*/
+.leap-admin-main-wrapper .section-title {
+    padding: 25px 0px;
+}
+
+.leap-admin-main-wrapper .section-title h4 {
+    text-transform: uppercase;
+    font-weight: 500 !important;
+    font-size: 20px;
+    display: inline-block;
+}
+
+
+
+/*=====================
+Section title
+=======================*/
+.leap-admin-main-wrapper .leap-admin-card {
+    position: relative;
+    background-color: var(--bgcolor-tertiary);
+    min-height: 100px;
+    color: var(--fontcolor-tertiary);
+    margin-bottom: 20px;
+    z-index: 1;
+    border: none;
+    border-radius: 6px;
+    /* box-shadow: 0 0 30px 0 rgba(82, 63, 105, .05); */
+}
+.leap-admin-main-wrapper .m-portlet__head {
+    display: table;
+    padding: 0 25px;
+    width: 100%;
+    height: 55px;
+    border-bottom: 1px solid var(--linecolor-black);
+}
+.leap-admin-main-wrapper .m-portlet__head-caption {
+    width: 100%;
+}
+.leap-admin-main-wrapper .m-portlet__head-caption {
+    display: flex;
+    align-items: center;
+    align-content: flex-start;
+}
+.leap-admin-main-wrapper .m-portlet__head-caption {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left;
+}
+.leap-admin-main-wrapper .m-portlet__head-title {
+    width: 100%;
+}
+.leap-admin-main-wrapper .m-portlet__head-caption .m-portlet__head-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.leap-admin-main-wrapper .m-portlet__head-text {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+}
+.leap-admin-main-wrapper .m-portlet__head-text {
+    display: table-cell;
+    vertical-align: middle;
+    color: var(--fontcolor-tertiary);
+    font-size: 16px;
+    font-weight: 600;
+}
+.leap-admin-main-wrapper .leap-admin-title-rightcontent-side {
+    float: right;
+    height: 55px;
+    display: table-cell;
+    vertical-align: middle;
+}
+.leap-admin-main-wrapper .leap-admin-title-rightcontent-side-inner {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+.leap-admin-main-wrapper .leap-admin-title-rightcontent-side .back-btn {
+    background-color: #333;
+    color: #fff;
+    padding: 5px 15px;
+}
+.leap-admin-main-wrapper .leap-admin-card-body {
+    padding: 25px;
+}
+.leap-admin-main-wrapper .card-footer {
+    padding: 10px 25px;
+    border-top: 1px solid var(--linecolor-black);
+}
+@media (max-width: 991px) {
+    .leap-admin-main-wrapper .section-title {
+        padding: 15px 5px;
+    }
+}
+@media (max-width: 575px) {
+    .leap-admin-cardtable-body {
+        padding: 15px 0 !important;
+    }
+}
+
+
+
+/*=========================
+Text List css
+===========================*/
+.leap-admin-main-wrapper .symbol {
+    display: inline-block;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    position: relative;
+    border-radius: .42rem;
+}
+.leap-admin-main-wrapper .symbol .symbol-label {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    font-weight: 500;
+    line-height: 0;
+    color: #3f4254;
+    background-color: #f3f6f9;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    border-radius: .42rem;
+}
+.leap-admin-main-wrapper .symbol.symbol-40 .symbol-label {
+    width: 40px;
+    height: 40px;
+}
+.leap-admin-main-wrapper .symbol.symbol-light-success .symbol-label {
+    background-color: #c9f7f5;
+    color: #1bc5bd;
+}
+.leap-admin-main-wrapper .h-75 {
+    height: 75%!important;
+}
+.leap-admin-main-wrapper .author-list .text-dark {
+    font-weight: 500;
+}
+.leap-admin-main-wrapper .author-list .text-muted {
+    color: #b5b5c3!important;
+    font-size: 12px;
+    font-weight: 500 !important;
+}
+
+
+/*=========================== 
+tooltip css  
+=============================*/
+.leap-admin-sidebar .tooltip__text {
+    display: block;
+}
+.leap-admin-sidebar.active .tooltip__text {
+    display: none;
+}
+.menu-tooltip {
+    position: relative;
+    display: inline-block;
+}
+.menu-tooltip:hover .tooltip__text {
+    opacity: 1;
+    visibility: visible;
+}
+.tooltip__text {
+    position: absolute;
+    background-color: var(--bgcolor-primary);
+    min-width: 120px;
+    color: var(--fontcolor-white);
+    font-size: 14px;
+    font-weight: 300;
+    text-align: center;
+    visibility: hidden;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 0.5s;
+    z-index: 1;
+    opacity: 0;
+}
+.tooltip__text::after {
+    display: inline-block;
+    position: absolute;
+    content: '';
+}
+.tooltip__text--right {
+    top: 50%;
+    left: calc(100% + 10px);
+    transform: translateY(-50%);
+}
+.tooltip__text--right::after {
+    top: 50%;
+    left: -4px;
+    transform: translateY(-50%);
+    border-top: 5px solid transparent;
+    border-right: 5px solid var(--bgcolor-primary);
+    border-bottom: 5px solid transparent;
+}
+@media (max-width: 991px) {
+    .leap-admin-sidebar .tooltip__text {
+        display: none;
+    }
+    .leap-admin-sidebar.active .tooltip__text {
+        display: none;
+    }
+}
+
+
+/*========================= 
+profile page css  
+===========================*/
+.cs-admin-profile-img {
+    text-align: center;
+    padding-bottom: 20px;
+}
+.cs-admin-profile-img img {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    margin-left: 0;
+    margin-right: 0;
+    margin: auto;
+    border: 5px solid #f2f3f8;
+}
+.cs-admin-profile-img h5 {
+    padding-top: 15px;
+    font-weight: 600;
+}
+.profile-tablist .nav-link {
+    display: block;
+    padding: 12px 20px;
+    font-weight: 500;
+    color: #555;
+}
+.profile-tablist .nav-link i {
+    margin-right: 10px;
+    font-weight: bold;
+    color: #777;
+}
+.profile-tablist .nav-pills .nav-link.active,
+.profile-tablist .nav-pills .show>.nav-link {
+    color: #05c361;
+    background-color: #f2f3f8;
+}
+.profile-tablist .nav-pills .nav-link.active i,
+.profile-tablist .nav-pills .show>.nav-link i {
+    color: #05c361;
+}
+.order-information {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.order-information .order__view--heading {
+    color: #555;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+.order-information .order__view {
+    margin-top: 0px;
+}
+.order-information .order__view {
+    color: #888;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 15px;
+}
+.image-input {
+    position: relative;
+    display: inline-block;
+    border-radius: 0.42rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.form-group .form-text {
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+.text-muted {
+    color: #B5B5C3 !important;
+}
+.image-input .image-input-wrapper {
+    width: 120px;
+    height: 120px;
+    border-radius: 0.42rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.image-input.image-input-outline .image-input-wrapper {
+    border: 3px solid #ffffff;
+    -webkit-box-shadow: 0 0.5rem 1.5rem 0.5rem rgba(0, 0, 0, 0.075);
+    box-shadow: 0 0.5rem 1.5rem 0.5rem rgba(0, 0, 0, 0.075);
+}
+.btn.btn-white.btn-shadow {
+    -webkit-box-shadow: 0px 9px 16px 0px rgba(24, 28, 50, 0.25) !important;
+    box-shadow: 0px 9px 16px 0px rgba(24, 28, 50, 0.25) !important;
+}
+.btn.btn-icon.btn-circle {
+    border-radius: 50%;
+}
+.btn.btn-icon.btn-xs {
+    height: 24px;
+    width: 24px;
+}
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+.image-input [data-action="change"] {
+    cursor: pointer;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+}
+.btn.btn-white {
+    color: #3F4254;
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
+.btn.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    height: calc(1.5em + 1.3rem + 2px);
+    width: calc(1.5em + 1.3rem + 2px);
+}
+.image-input [data-action="change"] input {
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden;
+    opacity: 0;
+}
+.btn.btn-white.btn-shadow {
+    -webkit-box-shadow: 0px 9px 16px 0px rgba(24, 28, 50, 0.25) !important;
+    box-shadow: 0px 9px 16px 0px rgba(24, 28, 50, 0.25) !important;
+}
+.btn.btn-icon.btn-circle {
+    border-radius: 50%;
+}
+.btn.btn-icon.btn-xs {
+    height: 28px;
+    width: 28px;
+    font-size: 14px;
+}
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+.image-input [data-action="cancel"] {
+    display: none;
+}
+.image-input [data-action="cancel"],
+.image-input [data-action="remove"] {
+    position: absolute;
+    right: -10px;
+    bottom: -5px;
+}
+
+
+/*========================== 
+Dashboard css  
+============================*/
+.leap-admin-main-container-body .card.card-custom {
+    background-position: right top;
+    background-size: 30% auto;
+}
+.leap-admin-main-container-body .card {
+    position: relative;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #ffffff;
+    background-clip: border-box;
+    border: 1px solid #EBEDF3;
+    border-radius: 0.42rem;
+}
+.leap-admin-main-container-body .bgi-no-repeat {
+    background-repeat: no-repeat;
+}
+.leap-admin-main-container-body .gutter-b {
+    margin-bottom: 25px;
+}
+.leap-admin-main-container-body .card.card-custom {
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(82, 63, 105, 0.05);
+    box-shadow: 0px 0px 30px 0px rgba(82, 63, 105, 0.05);
+    border: 0;
+}
+.leap-admin-main-container-body .card.card-custom.card-stretch {
+    display: flex;
+    -webkit-box-align: stretch !important;
+    -ms-flex-align: stretch !important;
+    align-items: stretch !important;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 100%;
+}
+.leap-admin-main-container-body .card.card-custom.card-stretch.gutter-b {
+    height: calc(100% - 25px);
+}
+.card.card-custom>.card-body {
+    padding: 2rem 2.25rem;
+}
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 2.25rem;
+}
+
+
+/*=========================== 
+Login and Register css  
+==============================*/
+.login-register {
+    background-color: var(--bgcolor-tertiary);
+    /* background-image: url("../img/login-bg.png"); */
+    position: relative;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0;
+    height: 100vh;
+}
+.login-register-overley {
+    height: 100%;
+}
+.login-register .login-container {
+    background-color: var(--bgcolor-navyblue-light);
+    /* background: rgb(30, 30, 45, .9); */
+    width: 470px;
+    margin: auto;
+    padding: 35px 45px;
+    border-radius: 10px;
+    border: 1px solid var(--linecolor-navyblue-light);
+}
+.login-logo {
+    width: 100px;
+    margin-bottom: 9px;
+    margin-left: -32px;
+}
+.login-register .login-heading {
+    color: var(--fontcolor-darkwhite-2);
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 26px;
+    margin-bottom: 2px;
+}
+.login-register .login-subheading {
+    font-size: 15px;
+    color: var(--fontcolor-darkwhite-4);
+    letter-spacing: .7px;
+}
+.login-register .login-from {
+    width: 100%;
+}
+.login-register .login-from,
+.login-register .sign__from,
+.login-register .sign__from--step2 {
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+.login-register label {
+    color: var(--fontcolor-darkwhite-2);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+}
+.login-register .form-control {
+    background: var(--bgcolor-tertiary);
+    width: 100%;
+    height: 52px;
+    color: var(--fontcolor-white);
+    font-size: 14px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid var(--linecolor-navyblue-light);
+}
+.login-register .form__input--passowrd {
+    display: flex;
+    width: 100%;
+    -webkit-box-align: center;
+    align-items: center;
+    border: 1px solid var(--linecolor-navyblue-light);
+    padding: 14px;
+    border-radius: 3px;
+    margin: 13px 0px;
+}
+.login-register .sub-btn {
+    background-color: var(--bgcolor-tertiary);
+    width: 100%;
+    height: 52px;
+    color: var(--bgcolor-white);
+    font-size: 15px;
+    line-height: 52px;
+    margin-top: 0;
+    padding: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: 0;
+}
+.login-register .sub-btn:hover,
+.login-register .sub-btn:focus,
+.login-register .sub-btn:active {
+    background-color: var(--bgcolor-primary);
+    border: none;
+    outline: 0;
+    box-shadow: none;
+}
+.login-register .forgot-password {
+    font-size: 1px;
+    line-height: 20px;
+}
+.login-register .forgot-password {
+    color: var(--fontcolor-gray);
+    font-size: 14px;
+    text-align: center;
+    font-weight: 400;
+    margin-top: 13px;
+    cursor: pointer;
+}
+.login-register .signup-container {
+    padding: 0px;
+    margin-top: 31px;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+.login-register .signup-container {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 10px 0px 0;
+    width: 100%;
+}
+.login-register .signUp-text {
+    color: var(--fontcolor-gray);
+    font-size: 15px;
+    line-height: 20px;
+    margin: 0px 5%;
+    text-align: center;
+    font-weight: 500;
+}
+.signup-btn {
+    border: 1px solid var(--bgcolor-primary);
+    color: var(--bgcolor-primary);
+    outline: none;
+    border-radius: 3px;
+    line-height: 0.56rem;
+    padding: 12px 20px;
+    font-size: 0.875rem;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 1px;
+    transition-property: box-shadow, transform;
+    background: transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    transform: perspective(1px) translateZ(0px);
+    transition-duration: 0.5s;
+}
+.signup-btn:hover,
+.signup-btn:focus,
+.signup-btn:active {
+    background-color: var(--bgcolor-primary);
+    color: var(--fontcolor-white);
+    outline: 0;
+    box-shadow: none;
+}
+.login-register .step {
+    margin-top: 15px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.login-register .step-text {
+    font-size: 12px;
+    line-height: 10px;
+    text-align: center;
+    color: var(--fontcolor-gray);
+    font-weight: 500;
+}
+.login-register i {
+    font-size: 10px;
+    margin-left: 5px;
+    color: #111;
+    font-weight: bold;
+}
