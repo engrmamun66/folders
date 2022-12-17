@@ -13,6 +13,7 @@
       </div>
     </div>
   </div>
+  
   <button @click="isShow=true" class="btn btn-success me-2">
     Confirm Modal
   </button>
@@ -54,9 +55,11 @@
             <button  @click="toggleGlobalModal();" type="button" class="btn btn-primary">Understood</button>
     </template>
   </ModalsGlobal>
+ 
 </template>
 
 <script setup>
+console.log(useAuthState())
 definePageMeta({
   middleware: ["auth"],
 });
@@ -69,5 +72,11 @@ function toggleConfirmModal() {
 function toggleGlobalModal() {
   isGlobalShow.value = ! isGlobalShow.value;
 }
+function randomBetweenInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+
+// throw createError({statusCode: 303, statusMessage: 'Something is wrong', message: 'Just Message'})
 
 </script>

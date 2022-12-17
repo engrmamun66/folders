@@ -24,7 +24,7 @@
 
     <ul id="leap-admin-accordion" class="leap-admin-accordion">
       <li>
-        <nuxt-link to="/" class="leftsidebar-link menu-tooltip">
+        <nuxt-link @click="menuMethods('activeMenu', 'dashboard')" to="/" class="leftsidebar-link menu-tooltip">
           <i class="las la-home"></i>
           <span class="menu-text">Dashboard</span>
           <span class="tooltip__text tooltip__text--right"> Dashboard </span>
@@ -32,14 +32,14 @@
       </li>
       <li>
         <a @click="menuMethods('activeMenu', 'users')" 
-          class="collaps-togglelink menu-tooltip sidemenu-active" :class="{active: menuMethods('isCurrent', 'users', 'add')}">
+          class="collaps-togglelink menu-tooltip sidemenu-active" :class="{active: menuMethods('isCurrent', 'users', 'create')}">
           <i class="las la-user-friends"></i><span class="menu-text">Users</span>
           <span class="menu-plusminus-icon"><i class="lni" :class="[menuState.isCollapseMenu ? 'lni-chevron-down' : 'lni-chevron-right']"></i></span>
           <span class="tooltip__text tooltip__text--right"> Users </span>
         </a>
         <ul class="accord-submenu" :style="menuMethods('isCurrent', 'users') ? 'display: block' : ''">
-          <li @click="menuMethods('activeSubMenu', 'users', 'booking')">
-            <nuxt-link to="/users/create" class="leftsidebar-link" :class="{'active': menuMethods('isCurrent', 'users', 'add')}">
+          <li @click="menuMethods('activeSubMenu', 'users', 'create')">
+            <nuxt-link to="/users/create" class="leftsidebar-link" :class="{'active': menuMethods('isCurrent', 'users', 'create')}">
               <i class="las la-user-plus"></i>
               <span class="menu-text">Add</span>
             </nuxt-link>
@@ -47,13 +47,13 @@
         </ul>
       </li>
       <li>
-        <nuxt-link to="/reports" @click="menuMethods('activeSubMenu', 'reports')" class="leftsidebar-link menu-tooltip sidemenu-active" :class="{'active': menuMethods('isCurrent', 'reports')}">
+        <nuxt-link to="/reports" @click="menuMethods('activeMenu', 'reports')" class="leftsidebar-link menu-tooltip sidemenu-active" :class="{'active': menuMethods('isCurrent', 'reports')}">
           <i class="lab la-wpforms"></i><span class="menu-text">Reports</span>
           <span class="tooltip__text tooltip__text--right"> Reports </span>
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link to="/settings" @click="menuMethods('activeSubMenu', 'settings')" class="leftsidebar-link menu-tooltip sidemenu-active" :class="{'active': menuMethods('isCurrent', 'settings')}">
+        <nuxt-link to="/settings" @click="menuMethods('activeMenu', 'settings')" class="leftsidebar-link menu-tooltip sidemenu-active" :class="{'active': menuMethods('isCurrent', 'settings')}">
           <i class="las la-cog"></i><span class="menu-text">Settings</span>
           <span class="tooltip__text tooltip__text--right"> Settings </span>
         </nuxt-link>

@@ -73,7 +73,7 @@
                       >Unauthorized user</span
                     >
                   </p>
-                  <div class="form-group">
+                  <div class="form-group mt-4">
                     <button
                       type="submit"
                       class="btn sub-btn"
@@ -83,7 +83,7 @@
                       "
                     >
                       Sign In
-                      <BtnLoader :show="authState.loading" :color="'white'" />
+                      <BtnLoader class="ms-2" :show="authState.loading" :color="'white'" />
                     </button>
                     <!-- <div class="forgot-password">Forgot password?</div> -->
                   </div>

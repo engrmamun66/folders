@@ -14,18 +14,48 @@
         <div class="leap-admin-headermenu-responsive">
           <ul>
             <li>
-                <a class="selected" @click.prevent="authState.loading_insptd=true;goToInspectDeploy()"><i class="las la-sign-in-alt" title="Login To Inspect Deploy"></i> <BtnLoader :show="authState.loading_insptd" /></a>
+                <a style="line-height:30px" class="selected" @click.prevent="authState.loading_insptd=true;goToInspectDeploy()"><i class="las la-sign-in-alt" title="Login To Inspect Deploy"></i> <BtnLoader :show="authState.loading_insptd" /></a>
             </li>
             <li>
               <a class="leap-admin-sidebarCollapse" @click="menuMethods('toggleSidebar')"
-                ><i class="lni lni-text-align-right"></i
+                ><i class="la la-bars"></i
               ></a>
             </li>
             <li style="display:none">
-              <a class="header-menu"><i class="lni lni-menu"></i></a>
+              <a class="header-menu"><i class="la la-menu"></i></a>
             </li>
             <li>
-              <a class="header-user" :class="{selected: useMenuState('menu').value.showRighttSideNavbar}" @click="menuMethods('toggleRighttSideNavbar')" ><i class="lni lni-user"></i></a>
+              <a class="header-user pe-0" @click="menuMethods('toggleProfilePopup')"><i class="la la-user"></i></a>
+              <div class="leap-admin-rightside-dropdown" :class="{selected: useMenuState('menu').value.showProfilePopup}"
+                  :style="useMenuState('menu').value.showProfilePopup ? 'display:block' : '' ">
+                  <div>
+                    <div class="leap-admin-rightside-topbar text-left">
+                      <h4 class="flex-center w-100 ps-4">
+                        <span class="text-white">{{ authState.user ? authState.user.name : '' }}</span>
+                        <span class="usermail">{{ authState.user ? authState.user.email : '' }}</span>
+                      </h4>
+                    </div>
+                    <div class="leap-admin-rightside-body">
+                      <ul class="leap-admin-userprofile-menu">
+                        <li>
+                          <a >
+                            <i class="lni lni-user"></i> My Profile
+                          </a>
+                        </li>
+                        <li>
+                          <a >
+                            <i class="lni lni-laptop"></i> My Task
+                          </a>
+                        </li>
+                        <li class="mt-2">
+                          <a class="logout-btn" @click="authState.loading=true;authMethods('logout')">
+                            <i class="fa fa-sign-out"></i> Logout <BtnLoader :show="authState.loading" />
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
             </li>
           </ul>
         </div>
@@ -166,8 +196,8 @@
                   <li>
                     <div class="leap-admin-rightside-topbar text-left">
                       <h4 class="flex-center w-100 ps-4">
-                        <span class="text-white">Mark Ande</span>
-                        <span class="usermail">info@leapinglogic.com</span>
+                        <span class="text-white">{{ authState.user ? authState.user.name : '' }}</span>
+                        <span class="usermail">{{ authState.user ? authState.user.email : '' }}</span>
                       </h4>
                     </div>
                     <div class="leap-admin-rightside-body">

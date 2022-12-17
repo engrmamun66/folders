@@ -8,7 +8,7 @@ export default {
             if (loader != null) {
                 document.getElementById('site_loader').style.display = 'none'
             }
-        }, 1000);
+        }, 500);
     },
     created() {
         
@@ -34,7 +34,7 @@ export default {
     },
     methods: {
         goToInspectDeploy(){
-            window.location = CustomConfig.baseURL_InspectDeploy + 'login-to-inspect-deploy?token=' + useCookie('ID-token').value;
+            window.location = useRuntimeConfig().public.BASE_URL_INSPECT_DEPLOY + '/login-to-inspect-deploy?token=' + useCookie('ID-token').value;
         },
         getRedStar(fieldName, validatorObject){
             if(validatorObject.hasOwnProperty(fieldName)){

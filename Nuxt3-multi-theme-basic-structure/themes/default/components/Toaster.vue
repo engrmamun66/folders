@@ -33,7 +33,7 @@
 let CM = useCommonState();
 defineProps({
   animation: {
-    default: "none", // accepts = 'none' | 'left' | 'right'
+    default: "none", // accepts = 'none' | 'left' | 'right' | 'top' | 'bottom'
     required: true,
     type: String,
   },
@@ -83,6 +83,12 @@ defineProps({
 .animation_right {
   animation: mymove_right 0.5s ease-in-out;
 }
+.animation_top {
+  animation: mymove_top 0.5s ease-in-out;
+}
+.animation_bottom {
+  animation: mymove_bottom 0.5s ease-in-out;
+}
 @keyframes mymove_left {
   from {
     right: 100px;
@@ -100,6 +106,26 @@ defineProps({
   }
   to {
     right: 0px;
+    opacity: 1;
+  }
+}
+@keyframes mymove_top {
+  from {
+    bottom: 100px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0px;
+    opacity: 1;
+  }
+}
+@keyframes mymove_bottom {
+  from {
+    top: 100px;
+    opacity: 0;
+  }
+  to {
+    top: 0px;
     opacity: 1;
   }
 }

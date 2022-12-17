@@ -75,7 +75,7 @@ export default function () {
         isCollapse: false,
         isCollapseMenu: false,
         menu: 'dashboard',
-        submenu: '',
+        subMenu: '',
         showProfilePopup:false,
         isLoading: false,
         showRighttSideNavbar:false

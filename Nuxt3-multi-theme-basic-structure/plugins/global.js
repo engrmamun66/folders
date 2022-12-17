@@ -1,4 +1,4 @@
-import CustomConfig from '~~/constant.config';
+import CustomConfig from '~/constant.config';
 import global from "~/mixins/global";
 
 export default defineNuxtPlugin(nuxtApp => {
@@ -6,16 +6,16 @@ export default defineNuxtPlugin(nuxtApp => {
 
     // Login from inspect deploy
     authMethods().loginFromInspectDeploy()
-    // Logout when expire token
-    authMethods().logoutWhenExpireToken()
 
     // Load store data
-    if(useCookie('accessToken').value) companyMethods().companyList()
+    if(useCookie('accessToken').value) {
+        companyMethods().companyList()
+        let authState = useAuthState().value 
+        authState.user = useCookie('user').value
+    }
 
     // Onloade select sidebar menu
     menuMethods().onloadSelectMenu()
-
-
 
     return {
         provide: {

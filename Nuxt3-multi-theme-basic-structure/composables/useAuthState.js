@@ -9,6 +9,7 @@ function authMethods(functionName = '', ...args) {
                 .then((response) => {
                     if (response.status == 200 && response.statusText == 'OK') {
                         useCookie('accessToken').value = response.data.access_token
+                        useCookie('user').value = response.data.user
                         useCookie('tokenType').value = response.data.token_type
                         useCookie('ID-token').value = btoa(payload.email + ',' + payload.password)
                         let seconds = (new Date().getTime() / 1000) //will give you the seconds since midnight, 1 Jan 1970
@@ -22,16 +23,8 @@ function authMethods(functionName = '', ...args) {
                     }
                 }).catch((error) => {
                     Common().toaster('error', error)
-                    if (error.response.status == 422) {
-                        authState.error.type = 422
-                        authState.error.message = error.response.data.errors
-                    } else if (error.response.status == 401) {
-                        authState.error.type = 401
-                        authState.error.message = error.response.data.error
-                    }
-                }).finally(() => {
-                    setTimeout(function stopLoader() {
-                    }, 1000)
+                }).finally(()=>{
+                    useAuthState().value.loading = false
                 });
         },
         loginFromInspectDeploy(){
@@ -54,6 +47,8 @@ function authMethods(functionName = '', ...args) {
                         useCookie('accessToken').value = null
                         useCookie('tokenType').value = null
                         useCookie('ID-token').value = null
+                        useCookie('user').value = null
+                        useCookie('tokenExpire').value = null
                         useMenuState('menu').value.showProfilePopup = false
                         Common().toaster('success', 'Logout successfull')
                         setTimeout(() => {
@@ -62,23 +57,21 @@ function authMethods(functionName = '', ...args) {
                     }
                 }).catch(error => {
                     Common().toaster('error', error)
-                }).finally(() => {
-                    setTimeout(function stopLoader() {
-                    }, 1000)
+                }).finally(()=>{
+                    useAuthState().value.loading = false
                 });
         },
-        logoutWhenExpireToken(){
-            if(process.client){
-                setTimeout(() => {
-                    setInterval(() => {
-                        if(useCookie('tokenExpire').value <= (new Date().getTime() / 1000) || useCookie('tokenExpire').value == undefined){
-                            useCookie('accessToken').value = null
-                            useCookie('ID-token').value = null
-                            useCookie('tokenExpire').value = null
-                            if(useRoute().fullPath != '/login')window.location.replace('/')
-                        }
-                    }, 5000);
-                }, 2000);
+        logoutIfExpireToken(){
+            if(useCookie('tokenExpire').value <= (new Date().getTime() / 1000) || useCookie('tokenExpire').value == undefined){
+                useCookie('accessToken').value = null
+                useCookie('ID-token').value = null
+                useCookie('tokenExpire').value = null
+                if(useRoute().fullPath != '/login'){
+                    Common().toaster('error', 'Access token has expired')
+                    setTimeout(() => {
+                        window.location.replace('/login')
+                    }, 1000);
+                }
             }
         },
         isLogin() {
