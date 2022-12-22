@@ -56,6 +56,21 @@ INSPECT_ROUTE="Inspect deploy base url"
 
 # add custom.config.js file in root directory
 
+``` 
+==============================
+How to convert to mobile app 
+https://capacitorjs.com/docs/getting-started
+==============================
+ ```
+# npx nuxt generate
+# npm i @capacitor/core
+# npm i -D @capacitor/cli
+# npx cap init [note: we can ignore if available '~/capacitor/config.json']
+# npm i @capacitor/android @capacitor/ios
+# npx cap add android
+# npx cap add ios
+# npx cap sync android
+# npx cap open android
 
 
 

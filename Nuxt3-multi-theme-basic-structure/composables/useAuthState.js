@@ -1,11 +1,11 @@
-import User from '~/apis/Users';
+import Auth from '~/apis/Auth';
 
 
 function authMethods(functionName = '', ...args) {
     const methods = {
         login(payload = {}) {
             let authState = useAuthState('auth').value
-            User.login(payload)
+            Auth.login(payload)
                 .then((response) => {
                     if (response.status == 200 && response.statusText == 'OK') {
                         useCookie('accessToken').value = response.data.access_token
@@ -41,7 +41,7 @@ function authMethods(functionName = '', ...args) {
             }
         },
         logout() {
-            User.logout()
+            Auth.logout()
                 .then((response) => {
                     if (response.status == 200 && response.statusText == 'OK') {
                         useCookie('accessToken').value = null
@@ -66,7 +66,7 @@ function authMethods(functionName = '', ...args) {
                 useCookie('accessToken').value = null
                 useCookie('ID-token').value = null
                 useCookie('tokenExpire').value = null
-                if(useRoute().fullPath != '/login'){
+                if(useRoute().path != '/login'){
                     Common().toaster('error', 'Access token has expired')
                     setTimeout(() => {
                         window.location.replace('/login')

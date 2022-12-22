@@ -1,4 +1,4 @@
-import Company from '~/apis/Companies';
+import Company from '~/apis/Company';
 
 function companyMethods(functionName='', ...args){
 

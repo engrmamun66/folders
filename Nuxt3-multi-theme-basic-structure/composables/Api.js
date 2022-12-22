@@ -1,5 +1,5 @@
 import axios from 'axios'
-function Api(accessToken=false, baseURL='get_from_env') {
+function Api(accessToken=true, baseURL='get_from_env') {
 
     let options = {
         baseURL: baseURL=='get_from_env' ? useRuntimeConfig().public.API_BASE_URL : baseURL,

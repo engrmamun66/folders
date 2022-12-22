@@ -11,6 +11,8 @@
       </div>
     </div>
     <button @click="sites" class="btn btn-warning">Click</button>
+    <pre>
+    </pre>
  </div>
 
 </template>
@@ -33,6 +35,5 @@ async function sites(){
   })
   console.log('res', res);
 }
-
 </script>
 

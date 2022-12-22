@@ -3,9 +3,9 @@
     <div class="sidebar-header">
       <div class="logo-area-inner">
         <div class="logo-area-middle">
-          <a>
+          <nuxt-link to="/">
             <img src="/img/logo.png" />
-          </a>
+          </nuxt-link>
         </div>
         <div class="leap-admin-collapes-area">
           <a class="leap-admin-sidebarCollapse">
@@ -45,6 +45,45 @@
             </nuxt-link>
           </li>
         </ul>
+      </li>
+        <li>
+          <a @click="menuMethods('activeMenu', 'posts')" 
+            class="collaps-togglelink menu-tooltip sidemenu-active" :class="{active: menuMethods('isCurrent', 'posts', 'create-post')}">
+            <i class="las la-map-marked"></i><span class="menu-text">Posts</span>
+            <span class="menu-plusminus-icon"><i class="lni" :class="[menuState.isCollapseMenu ? 'lni-chevron-down' : 'lni-chevron-right']"></i></span>
+            <span class="tooltip__text tooltip__text--right"> Posts </span>
+          </a>
+          <ul class="accord-submenu" :style="menuMethods('isCurrent', 'posts') ? 'display: block' : ''">
+            <li @click="menuMethods('activeSubMenu', 'posts', 'create-post')">
+              <nuxt-link to="/posts/create-post" class="leftsidebar-link" :class="{'active': menuMethods('isCurrent', 'posts', 'create-post')}">
+                <i class="las la-user-plus"></i>
+                <span class="menu-text">Add Site Post</span>
+              </nuxt-link>
+            </li>
+             <li @click="menuMethods('activeSubMenu', 'posts', 'create-checkpoint')">
+              <nuxt-link to="/posts/create-checkpoint" class="leftsidebar-link" :class="{'active': menuMethods('isCurrent', 'posts', 'create-checkpoint')}">
+                <i class="las la-map-pin"></i>
+                <span class="menu-text">Add Check points </span>
+              </nuxt-link>
+            </li>
+          </ul>
+      </li>
+      <li>
+          <a @click="menuMethods('activeMenu', 'guards')" 
+            class="collaps-togglelink menu-tooltip sidemenu-active" :class="{active: menuMethods('isCurrent', 'guards', 'add-guard')}">
+            <i class="las la-male"></i><span class="menu-text">Guards</span>
+            <span class="menu-plusminus-icon"><i class="lni" :class="[menuState.isCollapseMenu ? 'lni-chevron-down' : 'lni-chevron-right']"></i></span>
+            <span class="tooltip__text tooltip__text--right"> Guards </span>
+          </a>
+          <ul class="accord-submenu" :style="menuMethods('isCurrent', 'guards') ? 'display: block' : ''">
+            <li @click="menuMethods('activeSubMenu', 'guards', 'add-guard')">
+              <nuxt-link to="/guards/add-guard" class="leftsidebar-link" :class="{'active': menuMethods('isCurrent', 'guards', 'add-guard')}">
+                <i class="las la-user-plus"></i>
+                <span class="menu-text">Add Guard</span>
+              </nuxt-link>
+            </li>
+
+          </ul>
       </li>
       <li>
         <nuxt-link to="/reports" @click="menuMethods('activeMenu', 'reports')" class="leftsidebar-link menu-tooltip sidemenu-active" :class="{'active': menuMethods('isCurrent', 'reports')}">

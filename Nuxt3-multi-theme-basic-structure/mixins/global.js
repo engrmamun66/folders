@@ -10,9 +10,6 @@ export default {
             }
         }, 500);
     },
-    created() {
-        
-    },
     data() {
         return {
             validators: {

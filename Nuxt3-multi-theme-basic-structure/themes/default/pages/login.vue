@@ -12,7 +12,7 @@
           <div class="login-container">
             <div class="login-container-body">
               <div class="text-center">
-                <img src="img/inspect-logo.png" class="img-fluid login-logo" />
+                <img src="/img/inspect-logo.png" class="img-fluid login-logo" />
               </div>
               <div class="login-heading">Log In</div>
               <!-- <div class="login-subheading">Login to your account</div> -->

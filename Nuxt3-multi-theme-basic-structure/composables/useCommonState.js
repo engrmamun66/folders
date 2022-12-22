@@ -27,7 +27,14 @@ function Common(functionName = '', ...args) {
         toggleGlobalModal(){
             let commonState = useCommonState().value
             commonState.modals.global.show = ! commonState.modals.global.show
-        }
+        },
+        useMixin(mixin) {
+            if (mixin && !useNuxtApp().vueApp._context.mixins.includes(mixin)) {
+                useNuxtApp().vueApp._context.mixins 
+                = useNuxtApp().vueApp._context.mixins.slice(0, 1)
+                useNuxtApp().vueApp.mixin(mixin)
+            }
+        },
     };
 
     // ===============================
@@ -52,7 +59,8 @@ export default function () {
             global:{
                 show: false,
             }
-        }
+        },
+        showImagePreviewer: false,
     }))
 }
 

@@ -6,7 +6,11 @@
       <Header />
       <Sidebar />
         <div  id="leap-admin-main-container" :class="{margin_left : menuMethods('isCollapse')}" >
-          <div @click="useMenuState('menu').value.isCollapse = false">
+          <div style="min-height:100vh" 
+          @click="useMenuState('menu').value.isCollapse = false" 
+          @touchstart="menuMethods('toggleNavBySwif', $event)"
+          @touchend="menuMethods('toggleNavBySwif', $event)"
+          >
             <slot />
           </div>
         </div>
@@ -31,6 +35,5 @@ useHead({
     {type:'text/css', rel: 'stylesheet', href:'/css/style-admin.css'},
   ]
 });
-import cart from '~/mixins/cart'
-useNuxtApp().vueApp.mixin(cart)
+
 </script>

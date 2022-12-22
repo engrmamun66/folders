@@ -236,7 +236,6 @@
 .logout-btn:hover,
 .logout-btn:hover i
 {
-  color: white !important;
-  cursor: pointer;
+  
 }
 </style>

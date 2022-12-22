@@ -1,5 +1,10 @@
+
+const prefix = ''
+
 export default {
-    async sitesByCompanyId(companyId){
-        return await Api(true).get('auth/sites?company_id='+companyId)
+  
+    async listByCompanyId( config={} ){
+        return await Api(true).get(`${prefix}/sites`, config)
     },
+   
 }

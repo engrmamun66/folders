@@ -1,25 +1,29 @@
 
 
-function menuMethods(functionName='', ...args) {
+function menuMethods(functionName = '', ...args) {
     const methods = {
-        toggleSidebar(){
+        toggleSidebar(force = null) {
             let menuState = useMenuState('menu').value
-            menuState.isCollapse = !menuState.isCollapse
+            if (force != null) {
+                menuState.isCollapse = force
+            } else {
+                menuState.isCollapse = !menuState.isCollapse
+            }
         },
-        isCollapse(){
+        isCollapse() {
             return useMenuState('menu').value.isCollapse
         },
-        activeMenu(menu, subMenu='') {
+        activeMenu(menu, subMenu = '') {
             let menuState = useMenuState('menu').value
-            if(menuState.menu == menu){
+            if (menuState.menu == menu) {
                 menuState.isCollapseMenu = !menuState.isCollapseMenu
-            }else{
+            } else {
                 menuState.isCollapseMenu = true
             }
             menuState.menu = menu;
             menuState.subMenu = subMenu;
         },
-        activeSubMenu(menu, subMenu='') {
+        activeSubMenu(menu, subMenu = '') {
             let menuState = useMenuState('menu').value
             menuState.menu = menu;
             menuState.subMenu = subMenu;
@@ -40,20 +44,35 @@ function menuMethods(functionName='', ...args) {
                 return "";
             }
         },
-        toggleProfilePopup(){
+        toggleProfilePopup() {
             let menuState = useMenuState('menu').value
             menuState.showProfilePopup = !menuState.showProfilePopup
         },
-        toggleRighttSideNavbar(){
+        toggleRighttSideNavbar() {
             let menuState = useMenuState('menu').value
             menuState.showRighttSideNavbar = !menuState.showRighttSideNavbar
         },
-        onloadSelectMenu(){
+        onloadSelectMenu() {
             let menuState = useMenuState().value
             let menu = useRoute().path.split('/').splice(1)[0]
             menuState.menu = menu
-            let menuGroups = ['users']
-            if(menuGroups.includes(menu)) menuState.isCollapseMenu = true
+            let menuGroups = ['users', 'posts', 'guards']
+            if (menuGroups.includes(menu)) menuState.isCollapseMenu = true
+        },
+        toggleNavBySwif(event) {
+            let menuState = useMenuState('menu').value
+            if (event.type == 'touchstart') {
+                menuState.clientX_start = event.changedTouches[0].clientX
+            }
+            if (event.type == 'touchend') {
+                menuState.clientX_end = event.changedTouches[0].clientX
+                let movedPixel = menuState.clientX_end - menuState.clientX_start
+                if (menuState.clientX_end > menuState.clientX_start && movedPixel >= 120) {
+                    if(menuState.clientX_start <= 30) this.toggleSidebar(true)
+                } else if (menuState.clientX_end < menuState.clientX_start && movedPixel <= 120) {
+                    this.toggleSidebar(false)
+                }
+            }
         }
     };
 
@@ -76,9 +95,12 @@ export default function () {
         isCollapseMenu: false,
         menu: 'dashboard',
         subMenu: '',
-        showProfilePopup:false,
+        showProfilePopup: false,
         isLoading: false,
-        showRighttSideNavbar:false
+        showRighttSideNavbar: false,
+        // Sidebar toggle by swif left or right from mobile
+        clientX_start: 0,
+        clientX_end: 0,
     }))
 }
 

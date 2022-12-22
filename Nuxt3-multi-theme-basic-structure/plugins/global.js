@@ -8,9 +8,9 @@ export default defineNuxtPlugin(nuxtApp => {
     authMethods().loginFromInspectDeploy()
 
     // Load store data
-    if(useCookie('accessToken').value) {
+    if (useCookie('accessToken').value) {
         companyMethods().companyList()
-        let authState = useAuthState().value 
+        let authState = useAuthState().value
         authState.user = useCookie('user').value
     }
 

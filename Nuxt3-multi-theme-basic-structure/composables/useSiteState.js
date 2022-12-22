@@ -1,14 +1,14 @@
-import Site from '~/apis/Sites';
+import Site from '~/apis/Site';
 
 function siteMethods(functionName='', ...args){
     
     const methods = {
-        siteList(companyId){
+        getSitesByCompanyId(companyId){
             let siteState = useSiteState('site').value
-            Site.sitesByCompanyId()
+            Site.listByCompanyId({ params: { company_id: companyId } } )
             .then((response) => {
-                if (response.status == 200 && response.statusText == 'OK') {
-                    siteState.siteList = response.data;
+                if (response.status == 200 ) {
+                    siteState.siteList = response.data.data;
                 } else {
                     console.warn(response);
                 }
@@ -29,7 +29,7 @@ export { siteMethods }; // We can call this function globally
 export default function () {
     return useState('site', () => ({
         errors:null,
-        siteList:null
+        siteList:[]
     }))
 }
 

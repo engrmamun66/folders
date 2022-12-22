@@ -1,0 +1,6 @@
+{
+  "appId": "com.guardapp.app",
+  "appName": "Guard App",
+  "webDir": ".output/public",
+  "bundledWebRuntime": false
+}

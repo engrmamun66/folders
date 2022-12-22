@@ -11,6 +11,8 @@ Default css
 	--bgcolor-black: #000000;
 	--bgcolor-lightgray: #F5F5F5;
 	--bgcolor-lightgray-1: #f2f3f8;
+	--bgcolor-red: #E65B65;
+	--bgcolor-red-dark: #ea4751;
 
     --fontcolor-primary: #05c361;
 	--fontcolor-secondary: #1e1e2d;
@@ -196,10 +198,62 @@ table tr td a {
 /*======================= 
 Global custom class css
 ==========================*/
-.btn {
+.leap-btn {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    padding: 6px 15px;
     font-size: 14px;
     font-weight: 400;
-    border-radius: 3px;
+    border-radius: 4px;
+    border: none;
+    outline: 0;
+    box-shadow: none;
+}
+.leap-back-btn {
+    background-color: var(--bgcolor-navyblue-light-1);
+    color: var(--fontcolor-white);
+}
+.leap-back-btn:hover,
+.leap-back-btn:focus,
+.leap-back-btn:active {
+    background-color: var(--bgcolor-navyblue-light-1);
+    color: var(--fontcolor-white);
+}
+.leap-submit-btn {
+    background-color: var(--bgcolor-secondary);
+    color: var(--fontcolor-white);
+}
+.leap-submit-btn:hover,
+.leap-submit-btn:focus,
+.leap-submit-btn:active {
+    background-color: var(--bgcolor-primary);
+    color: var(--fontcolor-white);
+}
+.leap-cancel-btn {
+    background-color: var(--bgcolor-red);
+    color: var(--fontcolor-white);
+}
+.leap-cancel-btn:hover,
+.leap-cancel-btn:focus,
+.leap-cancel-btn:active {
+    background-color: var(--bgcolor-red-dark);
+    color: var(--fontcolor-white);
+}
+.leap-btn-green {
+    background-color: var(--bgcolor-secondary);
+    color: var(--fontcolor-white);
+}
+.leap-btn-green:hover,
+.leap-btn-green:focus,
+.leap-btn-green:active {
+    background-color: var(--bgcolor-primary);
+    color: var(--fontcolor-white);
 }
 .fullheight-100 {
     height: 100%;
@@ -457,6 +511,12 @@ Accoridion menu css
 }
 .leap-admin-main-wrapper .leap-admin-accordion li ul {
     display: none;
+}
+.leap-admin-main-wrapper .leap-admin-accordion .accord-submenu li a {
+    padding-left: 2rem !important;
+}
+.leap-admin-main-wrapper .leap-admin-accordion .accord-submenu li a i {
+    font-size: 18px;
 }
 .leap-admin-main-wrapper .leap-admin-sidebar.active .leap-admin-accordion li a i {
     float: left;
@@ -1082,11 +1142,12 @@ Header user css
     transition: all .3s;
 }
 .leap-admin-main-wrapper .logout-btn:hover {
-    background-color: var(--fontcolor-black-1);
-    border: 1px solid var(--fontcolor-gray);
-    color: var(--fontcolor-white);
+    border: 1px solid var(--linecolor-primary);
+    color: var(--fontcolor-primary) !important;
 }
-
+.leap-admin-main-wrapper .logout-btn:hover i{
+    color: var(--fontcolor-primary) !important;
+}
 
 /*=============================
 Header responsive css 
@@ -1198,11 +1259,10 @@ Short menu css
     color: #adadaf;
     font-weight: 300;
     font-size: 18px;
-    line-height: 18px;
+    line-height: 15px;
     font-weight: 500;
     margin: 0 15px 0 0;
     padding: 0px 25px 0px 0;
-    vertical-align: middle;
 }
 .leap-admin-main-wrapper .leap-admin-nav.leap-admin-nav--inline {
     display: inline-block;
@@ -1442,6 +1502,9 @@ Form css
     border: 1px solid var(--linecolor-navyblue-light-1);
     outline: 0;
 }
+input:-internal-autofill-selected {
+    background-color: var(--bgcolor-navyblue-light-1);
+}
 .leap-admin-main-wrapper ::placeholder {
     color: var(--fontcolor-tertiary);
 }
@@ -1565,7 +1628,40 @@ Form css
 .leap-admin-main-wrapper .checkbox.checkbox-outline.checkbox-success>input:checked~span:after {
     border-color: #1bc5bd;
 }
-
+.leap-custom-file {
+    padding: 6px;
+    border: 1px dashed #4d4d66;
+}
+.leap-custom-file .form-control {
+    display: none;
+}
+.leap-custom-file .input-group-text {
+    background-color: var(--bgcolor-navyblue-light-1) !important;
+    width: 100%;
+    height: 40px;
+    color: var(--fontcolor-tertiary) !important;
+    text-align: center;
+    font-weight: 400 !important;
+    border: 1px solid var(--linecolor-navyblue-light-1) !important;
+    border-radius: 3px !important;
+    justify-content: center;
+}
+.upload-file-name,
+.upload-img {
+    padding: 10px 5px;
+}
+.upload-img {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+.upload-img img {
+    width: 120px;
+}
+.upload-file-name p {
+    color: var(--fontcolor-tertiary);
+    font-size: 14px;
+}
 
 /*========================== 
 Radio button css
@@ -1709,9 +1805,9 @@ Section title
     color: var(--fontcolor-tertiary);
     margin-bottom: 20px;
     z-index: 1;
-    border: none;
+    border: 1px solid #cdcdcd17;
     border-radius: 6px;
-    /* box-shadow: 0 0 30px 0 rgba(82, 63, 105, .05); */
+    box-shadow: 0 8px 15px 0 rgb(0 0 0 / 25%);
 }
 .leap-admin-main-wrapper .m-portlet__head {
     display: table;
@@ -1742,42 +1838,28 @@ Section title
     align-items: center;
 }
 .leap-admin-main-wrapper .m-portlet__head-text {
-    display: flex;
-    align-items: center;
+    color: var(--fontcolor-tertiary);
     font-size: 16px;
     font-weight: 500;
     margin: 0;
     padding: 0;
 }
-.leap-admin-main-wrapper .m-portlet__head-text {
-    display: table-cell;
-    vertical-align: middle;
-    color: var(--fontcolor-tertiary);
-    font-size: 16px;
-    font-weight: 600;
-}
-.leap-admin-main-wrapper .leap-admin-title-rightcontent-side {
-    float: right;
-    height: 55px;
-    display: table-cell;
-    vertical-align: middle;
-}
-.leap-admin-main-wrapper .leap-admin-title-rightcontent-side-inner {
-    display: flex;
-    height: 100%;
-    align-items: center;
-}
-.leap-admin-main-wrapper .leap-admin-title-rightcontent-side .back-btn {
-    background-color: #333;
-    color: #fff;
-    padding: 5px 15px;
-}
 .leap-admin-main-wrapper .leap-admin-card-body {
     padding: 25px;
 }
 .leap-admin-main-wrapper .card-footer {
-    padding: 10px 25px;
+    display: flex;
+    align-items: center;
+    height: 55px;
+    padding-left: 25px;
+    padding-right: 25px;
     border-top: 1px solid var(--linecolor-black);
+}
+.card-footer-between {
+    justify-content: space-between;
+}
+.card-footer-center {
+    justify-content: center;
 }
 @media (max-width: 991px) {
     .leap-admin-main-wrapper .section-title {
@@ -2293,13 +2375,16 @@ Login and Register css
     color: #111;
     font-weight: bold;
 }
+pre{
+    color: var(--fontcolor-darkwhite-1);
+}
 
 /* -------------------------------------------------------------------------- */
 /*                       Global Template Transition CSS                       */
 /* -------------------------------------------------------------------------- */
 .template_in {
     animation-name: template_in;
-    animation-duration: 1.5s;
+    animation-duration: 1s;
     animation-iteration-count: 1;
   } 
   @keyframes template_in {
@@ -2310,6 +2395,4 @@ Login and Register css
         opacity: 1;
     }
   }
-  pre{
-    color: var(--fontcolor-darkwhite-1);
-  }
+  

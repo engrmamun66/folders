@@ -8,5 +8,7 @@ node_modules
 dist
 .vscode
 
-# json-server --watch db.json --port 3004
+# ignoring folder for converting android app
 db.json
+android
+ios
