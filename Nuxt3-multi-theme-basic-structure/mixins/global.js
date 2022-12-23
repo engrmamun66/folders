@@ -16,36 +16,49 @@ export default {
                 user: {
                     name: { required: true },
                     role: { required: true },
-                    email: { required: true, type: 'email'},
-                    password: { required: true},
-                    phone: { type: 'number', minLength: 6, maxLength: 14},
+                    email: { required: true, type: 'email' },
+                    password: { required: true },
+                    phone: { type: 'number', minLength: 6, maxLength: 14 },
                     deviceId: { required: true },
                     postId: { required: true },
                 },
-                login:{
-                    email: { required: true, type: 'email'},
-                    password: { required: true},
+                login: {
+                    email: { required: true, type: 'email' },
+                    password: { required: true },
                 }
             }
         }
     },
     methods: {
-        goToInspectDeploy(){
+        goToInspectDeploy() {
             window.location = useRuntimeConfig().public.BASE_URL_INSPECT_DEPLOY + '/login-to-inspect-deploy?token=' + useCookie('ID-token').value;
         },
-        getRedStar(fieldName, validatorObject){
-            if(validatorObject.hasOwnProperty(fieldName)){
+        back() {
+            useRouter().back()
+        },
+        getRedStar(fieldName, validatorObject) {
+            if (validatorObject.hasOwnProperty(fieldName)) {
                 let item = validatorObject[fieldName]
-                if(item.hasOwnProperty('required') && item.required) 
+                if (item.hasOwnProperty('required') && item.required)
                     return '<span class="text-danger p-1">*</span>'
             }
             return ''
         },
-        getFiledError(fieldName, errors){
-            if(errors.hasOwnProperty(fieldName)) {
-                let html = `<span class="text-danger p-1">`
-                html +=  errors[fieldName].join(' and ')
-                html +=  '</span>'
+        getSelectedWeekdays(weekDayObject /** Object-Type: constant.config.js > week_days */, JSON_output = true) {
+            let weekdays = { 0: [] }
+            for (let key in weekDayObject) {
+                if (weekDayObject[key]['selected']) {
+                    weekdays[0].push(weekDayObject[key]['fullname'])
+                }
+            }
+            // Output Format: {["saturday","sunday","monday","tuesday","wednesday"]}
+            return JSON_output ? JSON.stringify(weekdays) : weekdays
+        },
+        getFieldError(fieldName, errors) {
+            if (errors.hasOwnProperty(fieldName)) {
+                let html = `<span class="field-error-span text-danger p-1">`
+                html += errors[fieldName].join(' and ')
+                html += '</span>'
                 return html
             }
             return ''
@@ -88,7 +101,7 @@ export default {
 
             let errors = {};
             Object.entries(DataObject).forEach(([key, value]) => {
-                if(value==null) value = ''
+                if (value == null) value = ''
                 let needTovalidate = validators.hasOwnProperty(key);
 
                 if (needTovalidate) {
@@ -106,8 +119,18 @@ export default {
                     if (CurItemValidator.hasOwnProperty('type')) {
                         if (Types.indexOf(CurItemValidator['type'] != -1)) {
                             let type = CurItemValidator['type'];
-                            if (type == 'email' && !isValidEmail(value) && value!='')
+                            if (type == 'email' && !isValidEmail(value) && value != '')
                                 (typeof errors[key] == 'object') ? errors[key].push(`Email address is not valid`) : errors[key] = [`Email address is not valid`]
+                            else {
+                                if (type == 'number' && isNaN(value)) {
+                                    (typeof errors[key] == 'object') ? errors[key].push(` should be ${type}`) : errors[key] = [`${filterText(key)} should be ${type}`]
+                                } else {
+                                    if (typeof value != type) {
+                                        (typeof errors[key] == 'object') ? errors[key].push(` should be ${type}`) : errors[key] = [`${filterText(key)} should be ${type}`]
+                                    }
+                                }
+                            }
+
                         }
                     }
                     //====== ================= ===========
