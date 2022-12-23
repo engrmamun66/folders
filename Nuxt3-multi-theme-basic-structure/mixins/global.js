@@ -122,8 +122,9 @@ export default {
                             if (type == 'email' && !isValidEmail(value) && value != '')
                                 (typeof errors[key] == 'object') ? errors[key].push(`Email address is not valid`) : errors[key] = [`Email address is not valid`]
                             else {
-                                if (type == 'number' && isNaN(value)) {
-                                    (typeof errors[key] == 'object') ? errors[key].push(` should be ${type}`) : errors[key] = [`${filterText(key)} should be ${type}`]
+                                if (type == 'number') {
+                                    if (isNaN(value))
+                                        (typeof errors[key] == 'object') ? errors[key].push(` should be ${type}`) : errors[key] = [`${filterText(key)} should be ${type}`]
                                 } else {
                                     if (typeof value != type) {
                                         (typeof errors[key] == 'object') ? errors[key].push(` should be ${type}`) : errors[key] = [`${filterText(key)} should be ${type}`]
