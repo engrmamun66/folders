@@ -65,27 +65,29 @@ export default {
         },
         objectValidation(DataObject, validators) {
             /**
-             * How to call function: objectValidation(defaultsObject = {}, newObject = {},)
-             * 
-             *  you can pass a key name, that you passed in defaultsObject{} object
              * Example:
+             * ==============
              * DataObject = {
              *  name: 'Jhon',
              *  email: 'test@gmail.com',
              * }
              * validators = { 
              *  imei:{
-             *      required: true, 
-             *      type: 'string', // string | number | boolean | object | email
+             *      required: true,
+             *      type: 'string', // string | number | boolean | array | object | email
              *      minLength: 2,
              *      maxLength: 5,
+             *      min: 2,
+             *      max: 5,
+             *      regex: ["\d{2}", "gmi"], // [expression(required), flags(optional)]
              *      length: 15, //Check exact length
-             *      callback: 'App.date.format', // callback will fire to change value
+             *      callback: (value, DataObject, validators, errors) => value.length > 2, // this callback should return true or false
+             *      message: 'default meesage for callback()', // Remind: We can controll message by validator param of callback() function
              *   },
              * }
              */
 
-            let Types = ['string', 'number', 'boolean', 'object'];
+            let Types = ['string', 'number', 'boolean', 'array', 'object'];
 
             const filterText = (text) => {
                 let tt = text.toString().replaceAll('_', ' ');
@@ -103,7 +105,6 @@ export default {
             Object.entries(DataObject).forEach(([key, value]) => {
                 if (value == null) value = ''
                 let needTovalidate = validators.hasOwnProperty(key);
-
                 if (needTovalidate) {
                     //====== ================= ===========
                     //====== required checking ===========
@@ -118,7 +119,7 @@ export default {
                     //====== ================= ===========
                     if (CurItemValidator.hasOwnProperty('type')) {
                         if (Types.indexOf(CurItemValidator['type'] != -1)) {
-                            let type = CurItemValidator['type'];
+                            var type = CurItemValidator['type'];
                             if (type == 'email' && !isValidEmail(value) && value != '')
                                 (typeof errors[key] == 'object') ? errors[key].push(`Email address is not valid`) : errors[key] = [`Email address is not valid`]
                             else {
@@ -126,12 +127,18 @@ export default {
                                     if (isNaN(value))
                                         (typeof errors[key] == 'object') ? errors[key].push(` should be ${type}`) : errors[key] = [`${filterText(key)} should be ${type}`]
                                 } else {
-                                    if (typeof value != type) {
-                                        (typeof errors[key] == 'object') ? errors[key].push(` should be ${type}`) : errors[key] = [`${filterText(key)} should be ${type}`]
+                                    if (!(type in ['email', 'number', 'string'])) {
+                                        if (type == 'array') {
+                                            if (!Array.isArray(value))
+                                                (!Array.isArray(value)) ? errors[key].push(` should be array`) : errors[key] = [`${filterText(key)} should be array`]
+                                        }
+                                        if (type == 'object') {
+                                            if (typeof value != 'object' || Array.isArray(value))
+                                                (typeof errors[key] == 'object') ? errors[key].push(` should be ${type}`) : errors[key] = [`${filterText(key)} should be ${type}`]
+                                        }
                                     }
                                 }
                             }
-
                         }
                     }
                     //====== ================= ===========
@@ -148,7 +155,7 @@ export default {
                     if (CurItemValidator.hasOwnProperty('maxLength')) {
                         let maxLength = CurItemValidator['maxLength'];
                         if (value.length > maxLength)
-                            (typeof errors[key] == 'object') ? errors[key].push(` maximus length to be ${maxLength}`) : errors[key] = [`${filterText(key)} maximus length to be ${maxLength}`]
+                            (typeof errors[key] == 'object') ? errors[key].push(` maximum length to be ${maxLength}`) : errors[key] = [`${filterText(key)} maximum length to be ${maxLength}`]
                     }
                     //====== ================= ===========
                     //======== length checking ===========
@@ -158,16 +165,46 @@ export default {
                         if (value.length > length)
                             (typeof errors[key] == 'object') ? errors[key].push(` length to be ${length}`) : errors[key] = [`${filterText(key)} length to be ${length}`]
                     }
-                    //======================== =================================
-                    //======== fire callback functon to change value ===========
-                    //====== ================= =================================
-                    if (isEmptyObject(errors)) {
-                        if (CurItemValidator.hasOwnProperty('callback')) {
-                            let callback = CurItemValidator['callback'];
-                            DataObject[key] = eval(`${callback}(value)`);
+                    //====== ================= ===========
+                    //======== min checking ===========
+                    //====== ================= ===========
+                    if (CurItemValidator.hasOwnProperty('min')) {
+                        let min = CurItemValidator['min'];
+                        if (Number(value) < min)
+                            (typeof errors[key] == 'object') ? errors[key].push(` minimum to be ${min}`) : errors[key] = [`${filterText(key)} minimum to be ${min}`]
+                    }
+                    //====== ================= ===========
+                    //======== max checking ===========
+                    //====== ================= ===========
+                    if (CurItemValidator.hasOwnProperty('max')) {
+                        let max = CurItemValidator['max'];
+                        if (Number(value) > max)
+                            (typeof errors[key] == 'object') ? errors[key].push(` maximum to be ${max}`) : errors[key] = [`${filterText(key)} maximum to be ${max}`]
+                    }
+                    //====== ================= ===========
+                    //====== checking with regex =========
+                    //====== ================= ===========
+                    if (CurItemValidator.hasOwnProperty('regex')) {
+                        try {
+                            var regex = new RegExp(CurItemValidator['regex'][0], CurItemValidator['regex'][1] || 'gmi');
+                            if (!regex.test(value))
+                                (typeof errors[key] == 'object') ? errors[key].push(` is not matche with regex`) : errors[key] = [`${filterText(key)} is not matche with regex`]
+                        } catch (error) {
+                            (typeof errors[key] == 'object') ? errors[key].push(`:: ${error}`) : errors[key] = [`${filterText(key)}:: ${error}`]
                         }
                     }
-
+                    //======================== =================================
+                    //======== validate with callback function =================
+                    //====== ================= =================================
+                    if (CurItemValidator.hasOwnProperty('callback')) {
+                        let callback = CurItemValidator['callback'];
+                        if (value) {
+                            if (!callback(value, DataObject, validators, errors)) {
+                                CurItemValidator.message = CurItemValidator.message || `${filterText(key)} not validate by callback`
+                                errors[key] = [CurItemValidator.message]
+                            }
+                        }
+                    }
                 }
             });
             if (isEmptyObject(errors)) {
@@ -175,7 +212,6 @@ export default {
             } else {
                 return { status: 'NOK', errors: errors };
             }
-
         }
     },
 }
